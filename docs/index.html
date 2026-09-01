@@ -47,17 +47,27 @@
   .urlbox button:hover { border-color: var(--cup); }
   ol { color: var(--muted); padding-left: 20px; }
   ol b { color: var(--text); }
-  .ev { display: flex; align-items: center; gap: 14px; padding: 12px 16px;
+  .month { font-size: .8rem; text-transform: uppercase; letter-spacing: .09em;
+           color: var(--accent); font-weight: 700; margin: 22px 0 10px; }
+  .month:first-child { margin-top: 4px; }
+  .ev { display: flex; align-items: center; gap: 14px; padding: 10px 16px;
         background: var(--card); border-radius: 10px; margin-bottom: 8px;
         border-left: 4px solid var(--chall); }
-  .ev.cup { background: var(--cup-bg); border-left: 8px solid var(--cup); }
-  .ev .d { min-width: 52px; text-align: center; }
-  .ev .d b { display: block; font-size: 1.15rem; }
-  .ev .d i { font-style: normal; font-size: .75rem; color: var(--muted); }
+  .ev.cup { background: var(--cup-bg); border-left: 8px solid var(--cup);
+            box-shadow: inset 0 0 0 1px var(--cup-edge); }
+  .ev .d { min-width: 46px; text-align: center; flex: none; }
+  .ev .d b { display: block; font-size: 1.2rem; line-height: 1.1; }
+  .ev .d i { font-style: normal; font-size: .74rem; color: var(--muted); }
+  .ev img { width: 44px; height: 44px; flex: none; }
   .ev.cup .d b, .ev.cup .n b { color: var(--cup); }
   .ev .n { min-width: 0; }
-  .ev .n b { display: block; }
+  .ev .n b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .ev .n i { font-style: normal; font-size: .85rem; color: var(--muted); }
+  @media (max-width: 460px) {
+    .ev { gap: 10px; padding: 10px 12px; }
+    .ev img { width: 36px; height: 36px; }
+    .ev .d { min-width: 38px; }
+  }
   footer { color: var(--muted); font-size: .8rem; margin-top: 48px;
            border-top: 1px solid var(--edge); padding-top: 20px; }
   a { color: var(--cup); }
@@ -90,7 +100,8 @@
   </ol>
   <p class="sub">O Google actualiza a cada 12–24&nbsp;h e pode demorar até um dia a mostrar tudo pela primeira vez. No iPhone podes escolher a frequência nas definições da subscrição.</p>
 
-  <h2>Próximos eventos</h2>
+  <h2>Próximos eventos <span id="count" style="float:right;color:var(--muted);
+      text-transform:none;letter-spacing:0;font-weight:400"></span></h2>
   <div id="events"><p class="sub">A carregar…</p></div>
 
   <footer>
@@ -151,6 +162,7 @@ function parseEvents(text) {
       date: new Date(y, m - 1, d, start[2] ? +start[2] : 0, start[3] ? +start[3] : 0),
       time: start[2] ? start[2] + ':' + start[3] : '',
       cup: summary.indexOf('League Cup') === 0,
+      pre: summary.indexOf('Pre-Release') === 0,
       shop: unescapeText(summary.split(' · ').slice(1).join(' · ')),
       where: unescapeText(where)
     });
@@ -159,20 +171,46 @@ function parseEvents(text) {
 }
 
 var DAYS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+var MONTHS = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+              'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+  });
+}
+
+function iconFor(e) {
+  if (e.cup) return 'icons/cup.png';
+  if (e.pre) return 'icons/pre.png';
+  return 'icons/chall.png';
+}
 
 fetch(icsUrl, { cache: 'no-cache' })
   .then(function (r) { if (!r.ok) throw 0; return r.text(); })
   .then(function (text) {
     var now = new Date(); now.setHours(0, 0, 0, 0);
-    var evs = parseEvents(text).filter(function (e) { return e.date >= now; }).slice(0, 8);
+    var evs = parseEvents(text).filter(function (e) { return e.date >= now; });
     if (!evs.length) { throw 0; }
-    document.getElementById('events').innerHTML = evs.map(function (e) {
-      var meta = e.where + (e.time ? ' · ' + e.time : '');
-      return '<div class="ev' + (e.cup ? ' cup' : '') + '">' +
-             '<div class="d"><b>' + String(e.date.getDate()).padStart(2, '0') + '</b>' +
-             '<i>' + DAYS[e.date.getDay()] + '</i></div>' +
-             '<div class="n"><b>' + e.shop + '</b><i>' + meta + '</i></div></div>';
-    }).join('');
+
+    var html = '', lastMonth = '';
+    for (var i = 0; i < evs.length; i++) {
+      var e = evs[i];
+      var key = e.date.getFullYear() + '-' + e.date.getMonth();
+      if (key !== lastMonth) {
+        html += '<div class="month">' + MONTHS[e.date.getMonth()] + ' ' + e.date.getFullYear() + '</div>';
+        lastMonth = key;
+      }
+      var meta = esc(e.where + (e.time ? ' · ' + e.time : ''));
+      html += '<div class="ev' + (e.cup ? ' cup' : '') + '">' +
+              '<div class="d"><b>' + String(e.date.getDate()).padStart(2, '0') + '</b>' +
+              '<i>' + DAYS[e.date.getDay()] + '</i></div>' +
+              '<img src="' + iconFor(e) + '" alt="" loading="lazy">' +
+              '<div class="n"><b>' + esc(e.shop) + '</b><i>' + meta + '</i></div></div>';
+    }
+    document.getElementById('events').innerHTML = html;
+    document.getElementById('count').textContent =
+      evs.length + ' eventos · ' + evs.filter(function (x) { return x.cup; }).length + ' Cups';
   })
   .catch(function () {
     document.getElementById('events').innerHTML =
