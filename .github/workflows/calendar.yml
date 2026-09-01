@@ -1,0 +1,39 @@
+name: Update calendar feed
+
+on:
+  schedule:
+    - cron: "17 5 * * *"   # daily, 05:17 UTC
+  workflow_dispatch:        # lets you trigger it by hand from the Actions tab
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      # --no-poster because the PNG needs Windows fonts that CI does not have.
+      - name: Build events.ics
+        run: python main.py --weeks 26 --radius 30 --refresh --no-poster --ics docs/events.ics
+
+      - name: Commit if the feed changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/events.ics
+          if git diff --staged --quiet; then
+            echo "No change."
+          else
+            git commit -m "Update calendar feed"
+            git push
+          fi

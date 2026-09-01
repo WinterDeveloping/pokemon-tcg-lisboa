@@ -1,0 +1,6 @@
+# iCalendar mandates CRLF line endings (RFC 5545 3.1). core.autocrlf would
+# normalise the feed to LF on commit, so exempt it from all EOL conversion.
+*.ics -text
+
+# Binary assets: never touch.
+*.png binary

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pokémon TCG · Lisboa</title>
+<meta name="description" content="Calendário de League Cups, Challenges e Pre-Releases de Pokémon TCG na área de Lisboa.">
+<style>
+  :root {
+    --bg: #11131a; --card: #1a1d27; --card-2: #1f232e;
+    --text: #eef0f6; --muted: #8a92a6;
+    --cup: #7dd3fc; --cup-bg: #182938; --cup-edge: #365874;
+    --chall: #747e94; --accent: #ffcb05; --edge: #2a2f3d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 "Segoe UI", system-ui, -apple-system, sans-serif;
+    padding: 0 20px 64px;
+  }
+  .top { height: 6px; background: var(--accent); margin: 0 -20px 40px; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 2rem; margin: 0 0 6px; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); margin: 0 0 32px; }
+  h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .08em;
+       color: var(--accent); margin: 40px 0 14px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    flex: 1 1 240px; display: flex; align-items: center; gap: 12px;
+    padding: 16px 20px; border-radius: 12px; text-decoration: none;
+    background: var(--card); color: var(--text); border: 1px solid var(--edge);
+    font-weight: 600; transition: border-color .15s, background .15s;
+  }
+  .btn:hover { border-color: var(--cup); background: var(--card-2); }
+  .btn span { font-size: 1.4rem; line-height: 1; }
+  .btn small { display: block; font-weight: 400; color: var(--muted); font-size: .8rem; }
+  .urlbox { display: flex; gap: 8px; margin-top: 14px; }
+  .urlbox input {
+    flex: 1; min-width: 0; padding: 12px 14px; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--edge);
+    color: var(--muted); font-family: ui-monospace, Consolas, monospace; font-size: .85rem;
+  }
+  .urlbox button {
+    padding: 12px 18px; border-radius: 10px; border: 1px solid var(--edge);
+    background: var(--card); color: var(--text); cursor: pointer; font-weight: 600;
+  }
+  .urlbox button:hover { border-color: var(--cup); }
+  ol { color: var(--muted); padding-left: 20px; }
+  ol b { color: var(--text); }
+  .ev { display: flex; align-items: center; gap: 14px; padding: 12px 16px;
+        background: var(--card); border-radius: 10px; margin-bottom: 8px;
+        border-left: 4px solid var(--chall); }
+  .ev.cup { background: var(--cup-bg); border-left: 8px solid var(--cup); }
+  .ev .d { min-width: 52px; text-align: center; }
+  .ev .d b { display: block; font-size: 1.15rem; }
+  .ev .d i { font-style: normal; font-size: .75rem; color: var(--muted); }
+  .ev.cup .d b, .ev.cup .n b { color: var(--cup); }
+  .ev .n { min-width: 0; }
+  .ev .n b { display: block; }
+  .ev .n i { font-style: normal; font-size: .85rem; color: var(--muted); }
+  footer { color: var(--muted); font-size: .8rem; margin-top: 48px;
+           border-top: 1px solid var(--edge); padding-top: 20px; }
+  a { color: var(--cup); }
+</style>
+</head>
+<body>
+<div class="top"></div>
+<div class="wrap">
+
+  <h1>Pokémon TCG · Lisboa</h1>
+  <p class="sub">League Cups, Challenges e Pre-Releases até 30&nbsp;km do centro. Actualizado diariamente.</p>
+
+  <h2>Subscrever</h2>
+  <div class="btns">
+    <a class="btn" id="google" href="#"><span>📅</span>
+      <div>Google Calendar<small>Abre e confirma "Adicionar"</small></div></a>
+    <a class="btn" id="apple" href="#"><span>🍎</span>
+      <div>iPhone / iPad<small>Abre a app Calendário</small></div></a>
+  </div>
+
+  <div class="urlbox">
+    <input id="url" readonly aria-label="Endereço do calendário">
+    <button id="copy" type="button">Copiar</button>
+  </div>
+
+  <h2>Se preferires colar à mão</h2>
+  <ol>
+    <li><b>iPhone:</b> Definições → Apps → Calendário → Contas → Adicionar conta → Outra → <b>Adicionar calendário subscrito</b> → colar o link.</li>
+    <li><b>Google Calendar</b> (no computador): "Outros calendários" → <b>+</b> → <b>A partir do URL</b> → colar o link.</li>
+  </ol>
+  <p class="sub">O Google actualiza a cada 12–24&nbsp;h e pode demorar até um dia a mostrar tudo pela primeira vez. No iPhone podes escolher a frequência nas definições da subscrição.</p>
+
+  <h2>Próximos eventos</h2>
+  <div id="events"><p class="sub">A carregar…</p></div>
+
+  <footer>
+    Dados de <a href="https://www.pokedata.ovh/events/">pokedata.ovh</a>.
+    Projecto pessoal, sem ligação a The Pokémon Company.
+  </footer>
+</div>
+
+<script>
+// Build every link from wherever this page is actually served, so the repo
+// can be renamed or forked without touching the HTML.
+var icsUrl = new URL('events.ics', location.href).href;
+var webcal = icsUrl.replace(/^https?:/, 'webcal:');
+
+document.getElementById('url').value = icsUrl;
+document.getElementById('apple').href = webcal;
+document.getElementById('google').href =
+  'https://calendar.google.com/calendar/r?cid=' + encodeURIComponent(webcal);
+
+document.getElementById('copy').addEventListener('click', function () {
+  var btn = this;
+  navigator.clipboard.writeText(icsUrl).then(function () {
+    btn.textContent = 'Copiado';
+    setTimeout(function () { btn.textContent = 'Copiar'; }, 1600);
+  }, function () {
+    document.getElementById('url').select();
+  });
+});
+
+// Minimal ICS reader: enough to preview the next few events on this page.
+// Unfold continuation lines, then drop the CRs so /(.*)/ captures cleanly.
+function unfold(text) { return text.replace(/\r\n[ \t]/g, '').replace(/\r/g, ''); }
+
+function unescapeText(value) {
+  return value.replace(/\\([;,\\])/g, '$1');
+}
+
+function parseEvents(text) {
+  var out = [];
+  var blocks = unfold(text).split('BEGIN:VEVENT').slice(1);
+  for (var i = 0; i < blocks.length; i++) {
+    var b = blocks[i];
+    var summary = (b.match(/\nSUMMARY:(.*)/) || [])[1] || '';
+    var start = b.match(/\nDTSTART[^:]*:(\d{8})(?:T(\d{2})(\d{2}))?/);
+    var desc = (b.match(/\nDESCRIPTION:(.*)/) || [])[1] || '';
+    if (!start) continue;
+
+    // The description holds one detail per escaped newline; pick the line with
+    // the distance rather than a fixed index, since cost is not always present.
+    var where = '';
+    var parts = desc.split('\\n');
+    for (var j = 0; j < parts.length; j++) {
+      if (parts[j].indexOf('km de Lisboa') !== -1) { where = parts[j]; break; }
+    }
+
+    var y = +start[1].slice(0, 4), m = +start[1].slice(4, 6), d = +start[1].slice(6, 8);
+    out.push({
+      date: new Date(y, m - 1, d, start[2] ? +start[2] : 0, start[3] ? +start[3] : 0),
+      time: start[2] ? start[2] + ':' + start[3] : '',
+      cup: summary.indexOf('League Cup') === 0,
+      shop: unescapeText(summary.split(' · ').slice(1).join(' · ')),
+      where: unescapeText(where)
+    });
+  }
+  return out.sort(function (a, b) { return a.date - b.date; });
+}
+
+var DAYS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+
+fetch(icsUrl, { cache: 'no-cache' })
+  .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+  .then(function (text) {
+    var now = new Date(); now.setHours(0, 0, 0, 0);
+    var evs = parseEvents(text).filter(function (e) { return e.date >= now; }).slice(0, 8);
+    if (!evs.length) { throw 0; }
+    document.getElementById('events').innerHTML = evs.map(function (e) {
+      var meta = e.where + (e.time ? ' · ' + e.time : '');
+      return '<div class="ev' + (e.cup ? ' cup' : '') + '">' +
+             '<div class="d"><b>' + String(e.date.getDate()).padStart(2, '0') + '</b>' +
+             '<i>' + DAYS[e.date.getDay()] + '</i></div>' +
+             '<div class="n"><b>' + e.shop + '</b><i>' + meta + '</i></div></div>';
+    }).join('');
+  })
+  .catch(function () {
+    document.getElementById('events').innerHTML =
+      '<p class="sub">Não foi possível carregar a lista. O link acima continua a funcionar.</p>';
+  });
+</script>
+</body>
+</html>
