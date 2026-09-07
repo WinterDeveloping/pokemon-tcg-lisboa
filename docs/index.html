@@ -11,6 +11,7 @@
     --text: #eef0f6; --muted: #8a92a6;
     --cup: #7dd3fc; --cup-bg: #182938; --cup-edge: #365874;
     --chall: #747e94; --accent: #ffcb05; --edge: #2a2f3d;
+    color-scheme: dark;
   }
   * { box-sizing: border-box; }
   body {
@@ -68,6 +69,17 @@
     .ev img { width: 36px; height: 36px; }
     .ev .d { min-width: 38px; }
   }
+  .filter { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; }
+  .filter[hidden] { display: none; }
+  .filter label { flex: none; font-size: .85rem; color: var(--muted); }
+  .filter select {
+    flex: 0 1 auto; min-width: 0; max-width: 100%;
+    padding: 9px 12px; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--edge); color: var(--text);
+    font: inherit; font-size: .9rem; cursor: pointer;
+  }
+  .filter select:hover { border-color: var(--cup); }
+  .filter select:focus-visible { outline: 2px solid var(--cup); outline-offset: 2px; }
   footer { color: var(--muted); font-size: .8rem; margin-top: 48px;
            border-top: 1px solid var(--edge); padding-top: 20px; }
   footer b { color: var(--text); font-size: .9rem; display: inline-block; margin-bottom: 4px; }
@@ -103,6 +115,12 @@
 
   <h2>Próximos eventos <span id="count" style="float:right;color:var(--muted);
       text-transform:none;letter-spacing:0;font-weight:400"></span></h2>
+  <div class="filter" id="filter" hidden>
+    <label for="shop">Loja</label>
+    <select id="shop">
+      <option value="">Todas as lojas</option>
+    </select>
+  </div>
   <div id="events"><p class="sub">A carregar…</p></div>
 
   <footer>
@@ -188,31 +206,65 @@ function iconFor(e) {
   return 'icons/chall.png';
 }
 
+// Everything the feed gave us; the shop filter narrows this, never refetches.
+var allEvents = [];
+
+function render() {
+  var shop = document.getElementById('shop').value;
+  var evs = shop
+    ? allEvents.filter(function (e) { return e.shop === shop; })
+    : allEvents;
+
+  var html = '', lastMonth = '';
+  for (var i = 0; i < evs.length; i++) {
+    var e = evs[i];
+    var key = e.date.getFullYear() + '-' + e.date.getMonth();
+    if (key !== lastMonth) {
+      html += '<div class="month">' + MONTHS[e.date.getMonth()] + ' ' + e.date.getFullYear() + '</div>';
+      lastMonth = key;
+    }
+    var meta = esc(e.where + (e.time ? ' · ' + e.time : ''));
+    html += '<div class="ev' + (e.cup ? ' cup' : '') + '">' +
+            '<div class="d"><b>' + String(e.date.getDate()).padStart(2, '0') + '</b>' +
+            '<i>' + DAYS[e.date.getDay()] + '</i></div>' +
+            '<img src="' + iconFor(e) + '" alt="" loading="lazy">' +
+            '<div class="n"><b>' + esc(e.shop) + '</b><i>' + meta + '</i></div></div>';
+  }
+  document.getElementById('events').innerHTML = html;
+  document.getElementById('count').textContent =
+    evs.length + ' eventos · ' + evs.filter(function (x) { return x.cup; }).length + ' Cups';
+}
+
+// One option per shop that actually has an upcoming event, A-Z.
+// Object.create(null) so a shop named like an Object property cannot collide.
+function fillShops() {
+  var seen = Object.create(null), shops = [];
+  for (var i = 0; i < allEvents.length; i++) {
+    var s = allEvents[i].shop;
+    if (s && !seen[s]) { seen[s] = 1; shops.push(s); }
+  }
+  shops.sort(function (a, b) { return a.localeCompare(b, 'pt'); });
+
+  var sel = document.getElementById('shop');
+  for (var j = 0; j < shops.length; j++) {
+    var opt = document.createElement('option');
+    opt.value = shops[j];
+    opt.textContent = shops[j];
+    sel.appendChild(opt);
+  }
+  sel.addEventListener('change', render);
+}
+
 fetch(icsUrl, { cache: 'no-cache' })
   .then(function (r) { if (!r.ok) throw 0; return r.text(); })
   .then(function (text) {
     var now = new Date(); now.setHours(0, 0, 0, 0);
-    var evs = parseEvents(text).filter(function (e) { return e.date >= now; });
-    if (!evs.length) { throw 0; }
+    allEvents = parseEvents(text).filter(function (e) { return e.date >= now; });
+    if (!allEvents.length) { throw 0; }
 
-    var html = '', lastMonth = '';
-    for (var i = 0; i < evs.length; i++) {
-      var e = evs[i];
-      var key = e.date.getFullYear() + '-' + e.date.getMonth();
-      if (key !== lastMonth) {
-        html += '<div class="month">' + MONTHS[e.date.getMonth()] + ' ' + e.date.getFullYear() + '</div>';
-        lastMonth = key;
-      }
-      var meta = esc(e.where + (e.time ? ' · ' + e.time : ''));
-      html += '<div class="ev' + (e.cup ? ' cup' : '') + '">' +
-              '<div class="d"><b>' + String(e.date.getDate()).padStart(2, '0') + '</b>' +
-              '<i>' + DAYS[e.date.getDay()] + '</i></div>' +
-              '<img src="' + iconFor(e) + '" alt="" loading="lazy">' +
-              '<div class="n"><b>' + esc(e.shop) + '</b><i>' + meta + '</i></div></div>';
-    }
-    document.getElementById('events').innerHTML = html;
-    document.getElementById('count').textContent =
-      evs.length + ' eventos · ' + evs.filter(function (x) { return x.cup; }).length + ' Cups';
+    fillShops();
+    render();
+    document.getElementById('filter').hidden = false;
   })
   .catch(function () {
     document.getElementById('events').innerHTML =
