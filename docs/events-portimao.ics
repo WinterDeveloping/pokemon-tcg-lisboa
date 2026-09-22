@@ -1,0 +1,65 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pokémon TCG · Portimão
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Portimão
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Lisbon
+X-LIC-LOCATION:Europe/Lisbon
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:WEST
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:WET
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:513ca200-339f-42ab-af95-188bb6047fb3@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Mulligan Games Portimão
+DTSTART;TZID=Europe/Lisbon:20261011T150000
+DTEND;TZID=Europe/Lisbon:20261011T190000
+LOCATION:R. Dos Ctt 33C\, 8500-843 Portimão\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-003971/
+DESCRIPTION:League Challenge\nCusto: Ask Staff\nPortimão · 182 km de Lisb
+ oa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournamen
+ ts/26-10-003971/
+CATEGORIES:League Challenge
+X-LOCAL:Portimão
+X-FEED:events-portimao.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:83b3326c-c481-4735-a8ff-3667a1a64311@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Mulligan Games Portimão
+DTSTART;TZID=Europe/Lisbon:20261101T150000
+DTEND;TZID=Europe/Lisbon:20261101T190000
+LOCATION:R. Dos Ctt 33C\, 8500-843 Portimão\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-003187/
+DESCRIPTION:League Challenge\nCusto: Ask Staff\nPortimão · 182 km de Lisb
+ oa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournamen
+ ts/26-11-003187/
+CATEGORIES:League Challenge
+X-LOCAL:Portimão
+X-FEED:events-portimao.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

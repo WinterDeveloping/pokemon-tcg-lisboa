@@ -1,0 +1,101 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pokémon TCG · Évora
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Évora
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Lisbon
+X-LIC-LOCATION:Europe/Lisbon
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:WEST
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:WET
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:d91e1bff-46c4-4dfb-93f1-377fcefea18d@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Weatherlight Games
+DTSTART;TZID=Europe/Lisbon:20260927T150000
+DTEND;TZID=Europe/Lisbon:20260927T190000
+LOCATION:2 R. Frei José Maria Évora\, Évora\, Évora 7005-206\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-09-004441/
+DESCRIPTION:League Challenge\nCusto: 6.5€\nÉvora · 107 km de Lisboa\nht
+ tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-
+ 09-004441/
+CATEGORIES:League Challenge
+X-LOCAL:Évora
+X-FEED:events-evora.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:9ce31348-c4c3-4f02-ba99-5597bb155d05@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Weatherlight Games
+DTSTART;TZID=Europe/Lisbon:20261011T150000
+DTEND;TZID=Europe/Lisbon:20261011T190000
+LOCATION:2 R. Frei José Maria Évora\, Évora\, Évora 7005-206\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-002178/
+DESCRIPTION:League Challenge\nCusto: 6.5€\nÉvora · 107 km de Lisboa\nht
+ tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-
+ 10-002178/
+CATEGORIES:League Challenge
+X-LOCAL:Évora
+X-FEED:events-evora.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:238a40c1-9621-4bf7-90e8-43b83cb36f20@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Cup · Weatherlight Games
+DTSTART;TZID=Europe/Lisbon:20261129T100000
+DTEND;TZID=Europe/Lisbon:20261129T160000
+LOCATION:2 R. Frei José Maria Évora\, Évora\, Évora 7005-206\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-002177/
+DESCRIPTION:League Cup\nCusto: 19€\nÉvora · 107 km de Lisboa\nhttps://w
+ ww.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-0021
+ 77/
+CATEGORIES:League Cup
+X-LOCAL:Évora
+X-FEED:events-evora.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:4d46c0b1-1b8f-405c-8362-cad47267da58@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Weatherlight Games
+DTSTART;TZID=Europe/Lisbon:20261129T170000
+DTEND;TZID=Europe/Lisbon:20261129T210000
+LOCATION:2 R. Frei José Maria Évora\, Évora\, Évora 7005-206\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-001729/
+DESCRIPTION:League Challenge\nCusto: 6.5€\nÉvora · 107 km de Lisboa\nht
+ tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-
+ 11-001729/
+CATEGORIES:League Challenge
+X-LOCAL:Évora
+X-FEED:events-evora.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

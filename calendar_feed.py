@@ -7,7 +7,7 @@ a URL keeps the calendar live; importing the file once produces a static snapsho
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from events import Event
+from events import Event, place_feed
 
 PRODID = "-//lisbon-tcg-events//Pokemon TCG Lisboa//PT"
 CAL_NAME = "Pokémon TCG · Lisboa"
@@ -70,7 +70,14 @@ def _fold(line: str) -> str:
     return "\r\n ".join(c.decode("utf-8") for c in chunks)
 
 
-def build(events: list[Event], radius_km: float = 30.0) -> str:
+def _caldesc(radius_km: float, scope: str | None) -> str:
+    if scope:
+        return f"Cups, Challenges e Pre-Releases em {scope}"
+    return f"Cups, Challenges e Pre-Releases ate {radius_km:.0f} km de Lisboa"
+
+
+def build(events: list[Event], radius_km: float = 30.0,
+          scope: str | None = None) -> str:
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
     lines = [
@@ -79,8 +86,8 @@ def build(events: list[Event], radius_km: float = 30.0) -> str:
         f"PRODID:{PRODID}",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
-        f"X-WR-CALNAME:{_escape(CAL_NAME)}",
-        f"X-WR-CALDESC:{_escape(f'Cups, Challenges e Pre-Releases ate {radius_km:.0f} km de Lisboa')}",
+        f"X-WR-CALNAME:{_escape(CAL_NAME if scope is None else CAL_NAME.rsplit(chr(183), 1)[0].strip() + chr(32) + chr(183) + chr(32) + scope)}",
+        f"X-WR-CALDESC:{_escape(_caldesc(radius_km, scope))}",
         f"X-WR-TIMEZONE:{TZID}",
         # Hints to clients that polling more than twice a day is pointless.
         "REFRESH-INTERVAL;VALUE=DURATION:PT12H",
@@ -133,6 +140,11 @@ def build(events: list[Event], radius_km: float = 30.0) -> str:
         lines += [
             f"DESCRIPTION:{_escape(chr(10).join(detail))}",
             f"CATEGORIES:{_escape(event.label)}",
+            # Non-standard, ignored by calendar clients. The website groups on
+            # X-LOCAL and points its subscribe button at X-FEED, so the slug
+            # rules live in one place instead of being duplicated in JS.
+            f"X-LOCAL:{_escape(event.place)}",
+            f"X-FEED:{_escape(place_feed(event.place))}",
             "STATUS:CONFIRMED",
             "TRANSP:OPAQUE",
             "END:VEVENT",
@@ -142,7 +154,8 @@ def build(events: list[Event], radius_km: float = 30.0) -> str:
     return "\r\n".join(_fold(line) for line in lines) + "\r\n"
 
 
-def write(events: list[Event], out_path: Path, radius_km: float = 30.0) -> Path:
+def write(events: list[Event], out_path: Path, radius_km: float = 30.0,
+          scope: str | None = None) -> Path:
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(build(events, radius_km), encoding="utf-8", newline="")
+    out_path.write_text(build(events, radius_km, scope), encoding="utf-8", newline="")
     return out_path

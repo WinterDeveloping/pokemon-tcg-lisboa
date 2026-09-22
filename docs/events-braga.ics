@@ -1,0 +1,80 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pokémon TCG · Braga
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Braga
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Lisbon
+X-LIC-LOCATION:Europe/Lisbon
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:WEST
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:WET
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:02a217d1-115e-45d3-bf00-36be32287fe3@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Tbmj
+DTSTART;TZID=Europe/Lisbon:20260926T130000
+DTEND;TZID=Europe/Lisbon:20260926T170000
+LOCATION:R. José Afonso Machado 18\, 4715-595 Braga\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-09-011623/
+DESCRIPTION:League Challenge\nBraga · 322 km de Lisboa\nhttps://www.pokemo
+ n.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-09-011623/
+CATEGORIES:League Challenge
+X-LOCAL:Braga
+X-FEED:events-braga.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:309b78f2-5c8c-42ea-b30e-6c27a2e8e759@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Tbmj
+DTSTART;TZID=Europe/Lisbon:20261017T100000
+DTEND;TZID=Europe/Lisbon:20261017T140000
+LOCATION:R. José Afonso Machado 18\, 4715-595 Braga\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-004836/
+DESCRIPTION:League Challenge\nBraga · 322 km de Lisboa\nhttps://www.pokemo
+ n.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-004836/
+CATEGORIES:League Challenge
+X-LOCAL:Braga
+X-FEED:events-braga.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:b9ec33f0-bd66-4f42-8f21-83357b6250b2@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Tbmj
+DTSTART;TZID=Europe/Lisbon:20261121T100000
+DTEND;TZID=Europe/Lisbon:20261121T140000
+LOCATION:R. José Afonso Machado 18\, 4715-595 Braga\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-003847/
+DESCRIPTION:League Challenge\nBraga · 322 km de Lisboa\nhttps://www.pokemo
+ n.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11-003847/
+CATEGORIES:League Challenge
+X-LOCAL:Braga
+X-FEED:events-braga.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

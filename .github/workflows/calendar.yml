@@ -23,18 +23,18 @@ jobs:
       - run: pip install -r requirements.txt
 
       # --no-poster because the PNG needs Windows fonts that CI does not have.
-      # past.ics is a separate feed: the site lists it, but nobody subscribes to
-      # it, so finished events never land in anyone's calendar.
-      - name: Build events.ics and past.ics
+      # Writes all.ics + all-past.ics (what the site reads) and one feed per
+      # city. events.ics stays the Lisbon feed, so existing subscribers keep
+      # getting exactly what they signed up for.
+      - name: Build the calendar feeds
         run: >
-          python main.py --weeks 26 --radius 30 --refresh --no-poster
-          --ics docs/events.ics --past-ics docs/past.ics
+          python main.py --weeks 26 --refresh --no-poster --places docs
 
       - name: Commit if the feed changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/events.ics docs/past.ics
+          git add docs/*.ics
           if git diff --staged --quiet; then
             echo "No change."
           else

@@ -1,0 +1,65 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pokémon TCG · Torres Novas
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Torres Novas
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Lisbon
+X-LIC-LOCATION:Europe/Lisbon
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:WEST
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:WET
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:e59d06c1-efff-41f0-8e4d-94db4155ec84@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Cup · Templars Arena Gamecenter
+DTSTART;TZID=Europe/Lisbon:20261003T110000
+DTEND;TZID=Europe/Lisbon:20261003T170000
+LOCATION:Largo Do Comércio 3B\, 2350-213 Parceiros De Igreja\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-005653/
+DESCRIPTION:League Cup\nCusto: 15€\nTorres Novas · 93 km de Lisboa\nhttp
+ s://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10
+ -005653/
+CATEGORIES:League Cup
+X-LOCAL:Torres Novas
+X-FEED:events-torres-novas.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:64d46d60-84c6-48fb-8584-579f20c9b93d@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Templars Arena Gamecenter
+DTSTART;TZID=Europe/Lisbon:20261003T170000
+DTEND;TZID=Europe/Lisbon:20261003T210000
+LOCATION:Largo Do Comércio 3B\, 2350-213 Parceiros De Igreja\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-005655/
+DESCRIPTION:League Challenge\nCusto: 4€\nTorres Novas · 93 km de Lisboa\
+ nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/
+ 26-10-005655/
+CATEGORIES:League Challenge
+X-LOCAL:Torres Novas
+X-FEED:events-torres-novas.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

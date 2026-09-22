@@ -1,0 +1,66 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pokémon TCG · Coimbra
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Coimbra
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Lisbon
+X-LIC-LOCATION:Europe/Lisbon
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:WEST
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:WET
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:1dbc3804-e0c2-4034-b053-ecb5bc74f56d@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Cup · Divercentro
+DTSTART;TZID=Europe/Lisbon:20261018T110000
+DTEND;TZID=Europe/Lisbon:20261018T170000
+LOCATION:C. C. Coimbrashopping\, Av. Mendes Silva 123 Piso 0\, Alto De São
+  João\, 3030-193 Coimbra\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-005838/
+DESCRIPTION:League Cup\nCusto: A Defenir.\nCoimbra · 175 km de Lisboa\nhtt
+ ps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-1
+ 0-005838/
+CATEGORIES:League Cup
+X-LOCAL:Coimbra
+X-FEED:events-coimbra.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:e71392d3-e73c-44e6-88db-10be04796f50@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Divercentro
+DTSTART;TZID=Europe/Lisbon:20261025T140000
+DTEND;TZID=Europe/Lisbon:20261025T180000
+LOCATION:C. C. Coimbrashopping\, Av. Mendes Silva 123 Piso 0\, Alto De São
+  João\, 3030-193 Coimbra\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-006810/
+DESCRIPTION:League Challenge\nCoimbra · 175 km de Lisboa\nhttps://www.poke
+ mon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-006810/
+CATEGORIES:League Challenge
+X-LOCAL:Coimbra
+X-FEED:events-coimbra.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

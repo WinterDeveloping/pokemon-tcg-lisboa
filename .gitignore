@@ -4,4 +4,7 @@
 /events.png
 /events.ics
 /past.ics
+/all.ics
+/all-past.ics
+/events-*.ics
 __pycache__/

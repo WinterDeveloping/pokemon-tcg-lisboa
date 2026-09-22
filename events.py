@@ -21,6 +21,42 @@ PAST_CACHE_PATH = Path(__file__).with_name(".cache_events_past.json")
 CACHE_TTL_SECONDS = 6 * 60 * 60
 
 LISBON_LAT, LISBON_LON = 38.7223, -9.1393
+PORTO_LAT, PORTO_LON = 41.1496, -8.6109
+
+# Radius that counts as "the metro area" for the two big cities.
+METRO_KM = 40.0
+
+# The page opens here, and events.ics has always been this feed.
+HOME_PLACE = "Lisboa"
+
+# pokedata stores city names unaccented; these are the ones that surface as
+# headings on the site, so they are worth spelling properly.
+CITY_ACCENTS = {
+    "Evora": "Évora",
+    "Portimao": "Portimão",
+    "Setubal": "Setúbal",
+    "Alges": "Algés",
+    "Belem": "Belém",
+    "Vila Nova De Famalicao": "Vila Nova de Famalicão",
+    "Santo Andre": "Santo André",
+}
+
+# Far enough to cover the mainland and the islands; the API is country-wide
+# anyway, so this only switches off the distance filter.
+NATIONAL_KM = 2000.0
+
+
+def place_slug(place: str) -> str:
+    """URL-safe form of a place name: 'Portimão' -> 'portimao'."""
+    plain = unicodedata.normalize("NFKD", place).encode("ascii", "ignore").decode()
+    return "-".join(plain.lower().split())
+
+
+def place_feed(place: str) -> str:
+    """Filename of the feed for one place."""
+    if place == HOME_PLACE:
+        return "events.ics"  # unchanged since launch; subscribers depend on it
+    return f"events-{place_slug(place)}.ics"
 
 BAD = "�"  # replacement char: accents already lost in pokedata's own database
 
@@ -50,6 +86,7 @@ class Event:
     city: str
     address: str
     cost: str
+    place: str
     km: float
     url: str
     guid: str
@@ -97,6 +134,29 @@ def _haversine_km(lat1, lon1, lat2, lon2) -> float:
     dlon = rad(lon2 - lon1)
     a = math.sin(dlat / 2) ** 2 + math.cos(rad(lat1)) * math.cos(rad(lat2)) * math.sin(dlon / 2) ** 2
     return 2 * radius * math.asin(math.sqrt(a))
+
+
+def _city_name(raw: str) -> str:
+    """Display form of a city: title-cased, with known accents restored."""
+    name = _titlecase(_clean(raw).split(",")[0])
+    return CITY_ACCENTS.get(name, name)
+
+
+def _place(lat: float, lon: float, city: str) -> str:
+    """Which place heading an event belongs under.
+
+    Suburbs of the two big cities collapse into them, so "Lisboa" means the
+    metro area rather than the 3 events whose city field literally says
+    Lisboa. Everywhere else keeps its own name.
+
+    Decided on coordinates, not pokedata's city field, which is unreliable:
+    one shop 16 km from Lisbon reports its city as "Torres Novas".
+    """
+    if _haversine_km(LISBON_LAT, LISBON_LON, lat, lon) <= METRO_KM:
+        return "Lisboa"
+    if _haversine_km(PORTO_LAT, PORTO_LON, lat, lon) <= METRO_KM:
+        return "Porto"
+    return city
 
 
 def _request_page(page: int, past: bool = False) -> list[dict]:
@@ -175,9 +235,11 @@ def _to_events(rows: list[dict], radius_km: float) -> list[Event]:
             time=clock,
             type=(row.get("type") or "").strip(),
             shop=_titlecase(_clean(row.get("shop", ""))),
-            city=_titlecase(_clean(row.get("city", "")).split(",")[0]),
+            city=_city_name(row.get("city", "")),
             address=_titlecase(_clean(row.get("street_address", ""))),
             cost=_clean_cost(row.get("cost", "")),
+            place=_place(float(row["latitude"]), float(row["longitude"]),
+                         _city_name(row.get("city", ""))),
             km=km,
             url=(row.get("pokemon_url") or "").strip(),
             guid=(row.get("guid") or "").strip(),

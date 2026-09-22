@@ -1,0 +1,194 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pokémon TCG · Porto
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Porto
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Lisbon
+X-LIC-LOCATION:Europe/Lisbon
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:WEST
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:WET
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:cd30ad59-94a2-4432-a157-e49c6759614e@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · End Turn
+DTSTART;TZID=Europe/Lisbon:20260924T200000
+DTEND;TZID=Europe/Lisbon:20260925T000000
+LOCATION:Rua G Urbanizaçao Dos\, R. Pinhais Bastos 49\, 4430-679 Avintes\,
+  Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-09-019237/
+DESCRIPTION:League Challenge\nCusto: 10€\nVila Nova De Gaia · 269 km de 
+ Lisboa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tourn
+ aments/26-09-019237/
+CATEGORIES:League Challenge
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:323eb7d9-d474-4827-9d64-c1f9b3bca59d@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Drawphase
+DTSTART;TZID=Europe/Lisbon:20260926T150000
+DTEND;TZID=Europe/Lisbon:20260926T190000
+LOCATION:Tv. Conselheiro Veloso Da Cruz 150B\, 4400-097 Vila Nova De Gaia\,
+  Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-09-006874/
+DESCRIPTION:League Challenge\nCusto: 18€\nVila Nova De Gaia · 271 km de 
+ Lisboa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tourn
+ aments/26-09-006874/
+CATEGORIES:League Challenge
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:7d2c39fc-656f-4bf8-aa63-bbb3a9425af7@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Magus
+DTSTART;TZID=Europe/Lisbon:20260927T144500
+DTEND;TZID=Europe/Lisbon:20260927T184500
+LOCATION:352 R. Mário Cesariny\, Vila Nova De Famalicão\, Braga 4760\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-09-005147/
+DESCRIPTION:League Challenge\nCusto: 7€\nVila Nova de Famalicão · 303 k
+ m de Lisboa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-
+ tournaments/26-09-005147/
+CATEGORIES:League Challenge
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:d31062c9-e46b-4683-b494-5fefe9208e46@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Monster Market
+DTSTART;TZID=Europe/Lisbon:20260927T140000
+DTEND;TZID=Europe/Lisbon:20260927T180000
+LOCATION:82 Rua D. António Ribeiro\, Rio Tinto\, Porto 4435-481\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-09-018956/
+DESCRIPTION:League Challenge\nRio Tinto · 277 km de Lisboa\nhttps://www.po
+ kemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-09-018956/
+CATEGORIES:League Challenge
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:67013036-f6a8-46a9-8868-d6338c805483@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Arena Porto
+DTSTART;TZID=Europe/Lisbon:20261017T150000
+DTEND;TZID=Europe/Lisbon:20261017T190000
+LOCATION:801 Rua De Santa Catarina\, Porto\, Porto 4000-454\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-002600/
+DESCRIPTION:League Challenge\nCusto: 12€\nPorto · 274 km de Lisboa\nhttp
+ s://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10
+ -002600/
+CATEGORIES:League Challenge
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:974f1de8-5112-4bf5-96ba-7830bc18f9a1@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Drawphase
+DTSTART;TZID=Europe/Lisbon:20261031T150000
+DTEND;TZID=Europe/Lisbon:20261031T190000
+LOCATION:Tv. Conselheiro Veloso Da Cruz 150B\, 4400-097 Vila Nova De Gaia\,
+  Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-005761/
+DESCRIPTION:League Challenge\nCusto: 18€\nVila Nova De Gaia · 271 km de 
+ Lisboa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tourn
+ aments/26-10-005761/
+CATEGORIES:League Challenge
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:d939cb72-7149-4625-b251-13cc9c04cd18@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Arena Porto
+DTSTART;TZID=Europe/Lisbon:20261114T150000
+DTEND;TZID=Europe/Lisbon:20261114T190000
+LOCATION:801 Rua De Santa Catarina\, Porto\, Porto 4000-454\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-002079/
+DESCRIPTION:League Challenge\nCusto: 12€\nPorto · 274 km de Lisboa\nhttp
+ s://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11
+ -002079/
+CATEGORIES:League Challenge
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:02f33e87-9832-4f65-8db7-a5fa4759aa63@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Drawphase
+DTSTART;TZID=Europe/Lisbon:20261114T150000
+DTEND;TZID=Europe/Lisbon:20261114T190000
+LOCATION:Tv. Conselheiro Veloso Da Cruz 150B\, 4400-097 Vila Nova De Gaia\,
+  Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-004473/
+DESCRIPTION:League Challenge\nCusto: 18€\nVila Nova De Gaia · 271 km de 
+ Lisboa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tourn
+ aments/26-11-004473/
+CATEGORIES:League Challenge
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:5d391957-4c2d-4445-82eb-f23aa6d505f4@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Cup · Arena Porto
+DTSTART;TZID=Europe/Lisbon:20261128T150000
+DTEND;TZID=Europe/Lisbon:20261128T210000
+LOCATION:801 Rua De Santa Catarina\, Porto\, Porto 4000-454\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-09-005253/
+DESCRIPTION:League Cup\nCusto: 18€\nPorto · 274 km de Lisboa\nhttps://ww
+ w.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-09-00525
+ 3/
+CATEGORIES:League Cup
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

@@ -69,7 +69,32 @@
     .ev img { width: 36px; height: 36px; }
     .ev .d { min-width: 38px; }
   }
-  .filter { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; }
+  .zones { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 34px; }
+  .zones button {
+    padding: 9px 15px; border-radius: 999px; cursor: pointer;
+    background: var(--card); border: 1px solid var(--edge); color: var(--muted);
+    font: inherit; font-size: .85rem; font-weight: 600;
+    transition: border-color .15s, color .15s, background .15s;
+  }
+  .zones button:hover { border-color: var(--cup); color: var(--text); }
+  .zones button.on { background: var(--cup-bg); border-color: var(--cup); color: var(--cup); }
+  .zones button .n { margin-left: 7px; opacity: .6; font-weight: 400; }
+  /* The pill row costs five lines on a phone, so below this width the same
+     choice becomes a native picker instead. */
+  .placepick { display: none; align-items: center; gap: 10px; margin: 0 0 30px; }
+  .placepick label { flex: none; font-size: .85rem; color: var(--muted); }
+  .placepick select {
+    flex: 1 1 auto; min-width: 0; padding: 11px 13px; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--edge); color: var(--text);
+    font: inherit; font-size: .95rem; font-weight: 600; cursor: pointer;
+  }
+  .placepick select:focus-visible { outline: 2px solid var(--cup); outline-offset: 2px; }
+  @media (max-width: 560px) {
+    .zones { display: none; }
+    .placepick { display: flex; }
+  }
+  .zones button:focus-visible { outline: 2px solid var(--cup); outline-offset: 2px; }
+  .filter { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 16px; }
   .filter[hidden] { display: none; }
   .filter label { flex: none; font-size: .85rem; color: var(--muted); }
   .filter select {
@@ -115,8 +140,13 @@
 <div class="top"></div>
 <div class="wrap">
 
-  <h1>Pokémon TCG · Lisboa</h1>
-  <p class="sub">League Cups, Challenges e Pre-Releases até 30&nbsp;km do centro. Actualizado diariamente.</p>
+  <h1>Pokémon TCG · <span id="zonename">Lisboa</span></h1>
+  <p class="sub">League Cups, Challenges e Pre-Releases. Actualizado diariamente.</p>
+  <div class="zones" id="zones"></div>
+  <div class="placepick" id="placepick">
+    <label for="cidade">Cidade</label>
+    <select id="cidade"></select>
+  </div>
 
   <h2>Subscrever</h2>
   <div class="btns">
@@ -142,9 +172,7 @@
       text-transform:none;letter-spacing:0;font-weight:400"></span></h2>
   <div class="filter" id="filter" hidden>
     <label for="shop">Loja</label>
-    <select id="shop">
-      <option value="">Todas as lojas</option>
-    </select>
+    <select id="shop"><option value="">Todas as lojas</option></select>
   </div>
   <div id="events"><p class="sub">A carregar…</p></div>
 
@@ -162,19 +190,28 @@
 </div>
 
 <script>
-// Build every link from wherever this page is actually served, so the repo
-// can be renamed or forked without touching the HTML.
-var icsUrl = new URL('events.ics', location.href).href;
-var webcal = icsUrl.replace(/^https?:/, 'webcal:');
+// The page always opens on Lisboa. Each city's feed name travels in the
+// X-FEED line of its own events, so the slug rules live only in Python.
+var HOME_PLACE = 'Lisboa';
+var place = HOME_PLACE;
+var PLACE_FEED = Object.create(null);
 
-document.getElementById('url').value = icsUrl;
-document.getElementById('apple').href = webcal;
-document.getElementById('google').href =
-  'https://calendar.google.com/calendar/r?cid=' + encodeURIComponent(webcal);
+function abs(name) { return new URL(name, location.href).href; }
+
+// The subscribe box always points at the zone being viewed.
+function applyPlace() {
+  var icsUrl = abs(PLACE_FEED[place] || 'all.ics');
+  var webcal = icsUrl.replace(/^https?:/, 'webcal:');
+  document.getElementById('url').value = icsUrl;
+  document.getElementById('apple').href = webcal;
+  document.getElementById('google').href =
+    'https://calendar.google.com/calendar/r?cid=' + encodeURIComponent(webcal);
+  document.getElementById('zonename').textContent = place;
+}
 
 document.getElementById('copy').addEventListener('click', function () {
   var btn = this;
-  navigator.clipboard.writeText(icsUrl).then(function () {
+  navigator.clipboard.writeText(document.getElementById('url').value).then(function () {
     btn.textContent = 'Copiado';
     setTimeout(function () { btn.textContent = 'Copiar'; }, 1600);
   }, function () {
@@ -182,7 +219,7 @@ document.getElementById('copy').addEventListener('click', function () {
   });
 });
 
-// Minimal ICS reader: enough to preview the next few events on this page.
+// Minimal ICS reader: enough to preview the events on this page.
 // Unfold continuation lines, then drop the CRs so /(.*)/ captures cleanly.
 function unfold(text) { return text.replace(/\r\n[ \t]/g, '').replace(/\r/g, ''); }
 
@@ -198,6 +235,8 @@ function parseEvents(text) {
     var summary = (b.match(/\nSUMMARY:(.*)/) || [])[1] || '';
     var start = b.match(/\nDTSTART[^:]*:(\d{8})(?:T(\d{2})(\d{2}))?/);
     var desc = (b.match(/\nDESCRIPTION:(.*)/) || [])[1] || '';
+    var evPlace = (b.match(/\nX-LOCAL:(.*)/) || [])[1] || '';
+    var evFeed = (b.match(/\nX-FEED:(.*)/) || [])[1] || '';
     if (!start) continue;
 
     // The description holds one detail per escaped newline; pick the line with
@@ -207,6 +246,8 @@ function parseEvents(text) {
     for (var j = 0; j < parts.length; j++) {
       if (parts[j].indexOf('km de Lisboa') !== -1) { where = parts[j]; break; }
     }
+    // Nationally the distance from Lisbon is noise; the city is what matters.
+    var city = where.split(' · ')[0];
 
     var y = +start[1].slice(0, 4), m = +start[1].slice(4, 6), d = +start[1].slice(6, 8);
     out.push({
@@ -215,6 +256,9 @@ function parseEvents(text) {
       cup: summary.indexOf('League Cup') === 0,
       pre: summary.indexOf('Pre-Release') === 0,
       shop: unescapeText(summary.split(' · ').slice(1).join(' · ')),
+      place: unescapeText(evPlace),
+      feed: unescapeText(evFeed),
+      city: unescapeText(city),
       where: unescapeText(where)
     });
   }
@@ -237,13 +281,13 @@ function iconFor(e) {
   return 'icons/chall.png';
 }
 
-// Everything the feeds gave us; the shop filter narrows this, never refetches.
-// pastEvents stays null until the user actually opens the past section.
+// Everything the national feeds gave us; the pills and the shop filter narrow
+// this, never refetch. pastEvents stays null until the past section is opened.
 var allEvents = [];
 var pastEvents = null;
 
 function rowHtml(e) {
-  var meta = esc(e.where + (e.time ? ' · ' + e.time : ''));
+  var meta = esc(e.city + (e.time ? ' · ' + e.time : ''));
   return '<div class="ev' + (e.cup ? ' cup' : '') + '">' +
          '<div class="d"><b>' + String(e.date.getDate()).padStart(2, '0') + '</b>' +
          '<i>' + DAYS[e.date.getDay()] + '</i></div>' +
@@ -257,11 +301,11 @@ function monthLabel(d) { return MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
 function byMonth(evs, emit) {
   var i = 0;
   while (i < evs.length) {
-    var start = i, d = evs[i].date;
+    var startAt = i, d = evs[i].date;
     while (i < evs.length &&
            evs[i].date.getMonth() === d.getMonth() &&
            evs[i].date.getFullYear() === d.getFullYear()) { i++; }
-    emit(d, evs.slice(start, i));
+    emit(d, evs.slice(startAt, i));
   }
 }
 
@@ -290,11 +334,15 @@ function pastHtml(evs) {
 function render() {
   var shop = document.getElementById('shop').value;
   function pick(list) {
-    return shop ? list.filter(function (e) { return e.shop === shop; }) : list;
+    return list.filter(function (e) {
+      return e.place === place && (!shop || e.shop === shop);
+    });
   }
 
   var evs = pick(allEvents);
-  document.getElementById('events').innerHTML = listHtml(evs);
+  document.getElementById('events').innerHTML = evs.length
+    ? listHtml(evs)
+    : '<p class="sub">Nada marcado por aqui de momento.</p>';
   document.getElementById('count').textContent =
     evs.length + ' eventos · ' + evs.filter(function (x) { return x.cup; }).length + ' Cups';
 
@@ -302,33 +350,110 @@ function render() {
     var old = pick(pastEvents);
     document.getElementById('past').innerHTML = old.length
       ? pastHtml(old)
-      : '<p class="sub">Nenhum evento passado desta loja.</p>';
+      : '<p class="sub">Nenhum evento passado por aqui.</p>';
   }
 }
 
-// One option per shop that actually has an upcoming event, A-Z.
-// Object.create(null) so a shop named like an Object property cannot collide.
-function fillShops() {
-  var seen = Object.create(null), shops = [];
-  for (var i = 0; i < allEvents.length; i++) {
-    var s = allEvents[i].shop;
-    if (s && !seen[s]) { seen[s] = 1; shops.push(s); }
+// Distinct values of one field across the events, A-Z in Portuguese.
+// Object.create(null) so a name like "constructor" cannot collide.
+function distinct(evs, field) {
+  var seen = Object.create(null), out = [];
+  for (var i = 0; i < evs.length; i++) {
+    var v = evs[i][field];
+    if (v && !seen[v]) { seen[v] = 1; out.push(v); }
   }
-  shops.sort(function (a, b) { return a.localeCompare(b, 'pt'); });
+  return out.sort(function (a, b) { return a.localeCompare(b, 'pt'); });
+}
 
-  var sel = document.getElementById('shop');
-  for (var j = 0; j < shops.length; j++) {
+// Rebuild a select, keeping the current choice when it is still on offer.
+function setOptions(sel, values, allLabel) {
+  var keep = sel.value;
+  sel.innerHTML = '';
+  var first = document.createElement('option');
+  first.value = '';
+  first.textContent = allLabel;
+  sel.appendChild(first);
+  for (var i = 0; i < values.length; i++) {
     var opt = document.createElement('option');
-    opt.value = shops[j];
-    opt.textContent = shops[j];
+    opt.value = values[i];
+    opt.textContent = values[i];
     sel.appendChild(opt);
   }
-  sel.addEventListener('change', render);
+  sel.value = values.indexOf(keep) !== -1 ? keep : '';
 }
 
-// The past feed is a separate file so subscribers do not get finished events
-// pushed into their own calendars.
-var pastUrl = new URL('past.ics', location.href).href;
+// The shop list follows the chosen zone, so it can never offer a shop that
+// would leave the page empty.
+function syncShops() {
+  var pool = allEvents.filter(function (e) { return e.place === place; });
+  setOptions(document.getElementById('shop'), distinct(pool, 'shop'), 'Todas as lojas');
+}
+
+// Both pickers drive this, so the pills and the phone dropdown can never
+// disagree about which city is showing.
+function choosePlace(name) {
+  if (name === place) { return; }
+  place = name;
+  var box = document.getElementById('zones');
+  [].forEach.call(box.children, function (pill) {
+    var on = pill.dataset.place === place;
+    pill.className = on ? 'on' : '';
+    pill.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  document.getElementById('cidade').value = place;
+  applyPlace();
+  syncShops();
+  render();
+}
+
+function fillPlaces() {
+  var box = document.getElementById('zones');
+  var sel = document.getElementById('cidade');
+  var counts = Object.create(null);
+  for (var i = 0; i < allEvents.length; i++) {
+    var e = allEvents[i];
+    counts[e.place] = (counts[e.place] || 0) + 1;
+    if (e.feed) { PLACE_FEED[e.place] = e.feed; }
+  }
+
+  // Lisboa first, then wherever has the most on, so the busiest places are
+  // reachable without reading the whole list.
+  var present = Object.keys(counts).sort(function (a, b) {
+    if (a === HOME_PLACE) { return -1; }
+    if (b === HOME_PLACE) { return 1; }
+    return counts[b] - counts[a] || a.localeCompare(b, 'pt');
+  });
+  if (present.indexOf(place) === -1) { place = present[0]; }
+
+  box.innerHTML = '';
+  sel.innerHTML = '';
+  present.forEach(function (name) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.dataset.place = name;
+    b.setAttribute('aria-pressed', name === place ? 'true' : 'false');
+    if (name === place) { b.className = 'on'; }
+    b.appendChild(document.createTextNode(name));
+    var n = document.createElement('span');
+    n.className = 'n';
+    n.textContent = counts[name];
+    b.appendChild(n);
+    b.addEventListener('click', function () { choosePlace(name); });
+    box.appendChild(b);
+
+    var opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name + ' (' + counts[name] +
+                      (counts[name] === 1 ? ' evento)' : ' eventos)');
+    sel.appendChild(opt);
+  });
+
+  sel.value = place;
+  sel.addEventListener('change', function () { choosePlace(this.value); });
+}
+
+// The past feed is separate so subscribers never get finished events pushed
+// into their own calendars.
 var pastBtn = document.getElementById('pastbtn');
 var pastBox = document.getElementById('past');
 var pastLoading = false;
@@ -336,7 +461,7 @@ var pastLoading = false;
 function loadPast() {
   pastLoading = true;
   pastBox.innerHTML = '<p class="sub">A carregar…</p>';
-  fetch(pastUrl, { cache: 'no-cache' })
+  fetch(abs('all-past.ics'), { cache: 'no-cache' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (text) {
       var now = new Date(); now.setHours(0, 0, 0, 0);
@@ -362,14 +487,18 @@ pastBtn.addEventListener('click', function () {
   if (!open && !pastEvents && !pastLoading) { loadPast(); }
 });
 
-fetch(icsUrl, { cache: 'no-cache' })
+applyPlace();
+
+fetch(abs('all.ics'), { cache: 'no-cache' })
   .then(function (r) { if (!r.ok) throw 0; return r.text(); })
   .then(function (text) {
     var now = new Date(); now.setHours(0, 0, 0, 0);
     allEvents = parseEvents(text).filter(function (e) { return e.date >= now; });
     if (!allEvents.length) { throw 0; }
 
-    fillShops();
+    fillPlaces();
+    applyPlace();
+    syncShops();
     render();
     document.getElementById('filter').hidden = false;
     pastBtn.hidden = false;

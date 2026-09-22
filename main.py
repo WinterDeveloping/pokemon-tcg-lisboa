@@ -17,7 +17,7 @@ from pathlib import Path
 import requests
 
 import calendar_feed
-from events import get_events, get_past_events
+from events import get_events, get_past_events, place_feed, NATIONAL_KM
 from poster import render
 
 OUT_PATH = Path(__file__).with_name("events.png")
@@ -38,6 +38,38 @@ def post_to_discord(webhook_url: str, image_path: Path, count: int) -> None:
     response.raise_for_status()
 
 
+def write_place_feeds(out_dir: Path, weeks: int | None, past_weeks: int,
+                      use_cache: bool) -> list[tuple[str, int]]:
+    """Write the national feeds the website reads, plus one feed per city.
+
+    events.ics stays the Lisbon feed it has always been, so anyone already
+    subscribed keeps getting exactly the events they signed up for.
+    """
+    events = get_events(radius_km=NATIONAL_KM, use_cache=use_cache)
+    past = get_past_events(radius_km=NATIONAL_KM, weeks=past_weeks, use_cache=use_cache)
+    if weeks:
+        cutoff = date.today() + timedelta(weeks=weeks)
+        events = [e for e in events if e.date <= cutoff]
+
+    written = []
+
+    def emit(filename: str, evs, scope):
+        calendar_feed.write(evs, out_dir / filename, radius_km=NATIONAL_KM, scope=scope)
+        written.append((filename, len(evs)))
+
+    # What the page itself reads: everything, filtered client-side.
+    emit("all.ics", events, "Portugal")
+    emit("all-past.ics", past, "Portugal")
+
+    # Busiest first, which is also the order the pills end up in.
+    places = sorted({e.place for e in events},
+                    key=lambda p: (-sum(e.place == p for e in events), p))
+    for place in places:
+        emit(place_feed(place), [e for e in events if e.place == place], place)
+
+    return written
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Pokemon TCG events near Lisbon")
     parser.add_argument("--radius", type=float, default=30.0, help="km from Lisbon centre (default 30)")
@@ -51,6 +83,8 @@ def main() -> int:
                         help="also write an .ics of recently finished events")
     parser.add_argument("--past-weeks", type=int, default=8,
                         help="how far back --past-ics reaches (default 8)")
+    parser.add_argument("--places", metavar="DIR", type=Path,
+                        help="write the national feeds plus one per city into DIR")
     parser.add_argument("--no-poster", action="store_true",
                         help="skip the PNG (for CI, where the Windows fonts are absent)")
     args = parser.parse_args()
@@ -64,6 +98,17 @@ def main() -> int:
     if args.weeks:
         cutoff = date.today() + timedelta(weeks=args.weeks)
         events = [e for e in events if e.date <= cutoff]
+
+    if args.places:
+        try:
+            written = write_place_feeds(args.places, weeks=args.weeks,
+                                        past_weeks=args.past_weeks,
+                                        use_cache=not args.refresh)
+        except requests.RequestException as exc:
+            print(f"Could not build the city feeds: {exc}", file=sys.stderr)
+            return 1
+        for name, n in written:
+            print(f"{n:>3} events -> {name}")
 
     if args.past_ics:
         try:

@@ -1,0 +1,120 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pokémon TCG · Aveiro
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Aveiro
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Lisbon
+X-LIC-LOCATION:Europe/Lisbon
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:WEST
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:WET
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:dadfb7c0-add6-40fd-9341-024e49fc0883@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Friendzone Lounge
+DTSTART;TZID=Europe/Lisbon:20260926T200000
+DTEND;TZID=Europe/Lisbon:20260927T000000
+LOCATION:69 R. De Anadia\, Aveiro\, Aveiro 3810-164\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-09-019562/
+DESCRIPTION:League Challenge\nCusto: 7.5€\nAveiro · 216 km de Lisboa\nht
+ tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-
+ 09-019562/
+CATEGORIES:League Challenge
+X-LOCAL:Aveiro
+X-FEED:events-aveiro.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8a499066-0048-41c0-af5f-c44064572c72@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Kairos Gaming Venue
+DTSTART;TZID=Europe/Lisbon:20261003T140000
+DTEND;TZID=Europe/Lisbon:20261003T180000
+LOCATION:Av. Da Força Aérea Portuguesa 99 Rc Dto\, 3800-355 Aveiro\, Port
+ ugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-001055/
+DESCRIPTION:League Challenge\nCusto: 10€\nAveiro · 218 km de Lisboa\nhtt
+ ps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-1
+ 0-001055/
+CATEGORIES:League Challenge
+X-LOCAL:Aveiro
+X-FEED:events-aveiro.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:ce9201d6-c7f6-4821-8972-4391c573578b@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Cup · Friendzone Lounge
+DTSTART;TZID=Europe/Lisbon:20261005T100000
+DTEND;TZID=Europe/Lisbon:20261005T160000
+LOCATION:69 R. De Anadia\, Aveiro\, Aveiro 3810-164\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-006729/
+DESCRIPTION:League Cup\nCusto: 10€\nAveiro · 216 km de Lisboa\nhttps://w
+ ww.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-0067
+ 29/
+CATEGORIES:League Cup
+X-LOCAL:Aveiro
+X-FEED:events-aveiro.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:90178ab4-b5cf-4e49-8db0-aece32d393ee@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Friendzone Lounge
+DTSTART;TZID=Europe/Lisbon:20261017T100000
+DTEND;TZID=Europe/Lisbon:20261017T140000
+LOCATION:69 R. De Anadia\, Aveiro\, Aveiro 3810-164\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-006723/
+DESCRIPTION:League Challenge\nCusto: 7.5€\nAveiro · 216 km de Lisboa\nht
+ tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-
+ 10-006723/
+CATEGORIES:League Challenge
+X-LOCAL:Aveiro
+X-FEED:events-aveiro.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:a5df126f-f53b-48ca-9d0c-f690b3b30995@pokedata.ovh
+DTSTAMP:20260922T124831Z
+SUMMARY:League Challenge · Friendzone Lounge
+DTSTART;TZID=Europe/Lisbon:20261107T100000
+DTEND;TZID=Europe/Lisbon:20261107T140000
+LOCATION:69 R. De Anadia\, Aveiro\, Aveiro 3810-164\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-004958/
+DESCRIPTION:League Challenge\nCusto: 7.5€\nAveiro · 216 km de Lisboa\nht
+ tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-
+ 11-004958/
+CATEGORIES:League Challenge
+X-LOCAL:Aveiro
+X-FEED:events-aveiro.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
