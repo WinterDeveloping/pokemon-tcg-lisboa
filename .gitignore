@@ -1,5 +1,7 @@
 /.cache_events.json
+/.cache_events_past.json
 /settings.json
 /events.png
 /events.ics
+/past.ics
 __pycache__/

@@ -80,6 +80,31 @@
   }
   .filter select:hover { border-color: var(--cup); }
   .filter select:focus-visible { outline: 2px solid var(--cup); outline-offset: 2px; }
+  .past-toggle {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
+    padding: 0; border: 0; background: none; cursor: pointer;
+    color: var(--muted); font: inherit; font-size: .85rem;
+  }
+  .past-toggle:hover { color: var(--text); }
+  .past-toggle .chev { transition: transform .15s; display: inline-block; }
+  .past-toggle[aria-expanded="true"] .chev { transform: rotate(90deg); }
+  /* Finished events sit behind the upcoming ones visually, not just spatially. */
+  #past { opacity: .62; margin-top: 12px; }
+  #past:hover { opacity: 1; }
+  .pm { border-top: 1px solid var(--edge); }
+  .pm > summary {
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+    list-style: none; padding: 12px 2px;
+    font-size: .8rem; text-transform: uppercase; letter-spacing: .09em;
+    color: var(--accent); font-weight: 700;
+  }
+  .pm > summary::-webkit-details-marker { display: none; }
+  .pm > summary:hover { color: var(--text); }
+  .pm > summary .chev { transition: transform .15s; }
+  .pm[open] > summary .chev { transform: rotate(90deg); }
+  .pm > summary .num { margin-left: auto; color: var(--muted);
+                       text-transform: none; letter-spacing: 0; font-weight: 400; }
+  .pm > div { padding-bottom: 8px; }
   footer { color: var(--muted); font-size: .8rem; margin-top: 48px;
            border-top: 1px solid var(--edge); padding-top: 20px; }
   footer b { color: var(--text); font-size: .9rem; display: inline-block; margin-bottom: 4px; }
@@ -122,6 +147,12 @@
     </select>
   </div>
   <div id="events"><p class="sub">A carregar…</p></div>
+
+  <button class="past-toggle" id="pastbtn" type="button"
+          aria-expanded="false" aria-controls="past" hidden>
+    <span class="chev">›</span> Eventos passados
+  </button>
+  <div id="past" hidden></div>
 
   <footer>
     <b>Criado por Pedro Sarmento</b><br>
@@ -206,33 +237,73 @@ function iconFor(e) {
   return 'icons/chall.png';
 }
 
-// Everything the feed gave us; the shop filter narrows this, never refetches.
+// Everything the feeds gave us; the shop filter narrows this, never refetches.
+// pastEvents stays null until the user actually opens the past section.
 var allEvents = [];
+var pastEvents = null;
+
+function rowHtml(e) {
+  var meta = esc(e.where + (e.time ? ' · ' + e.time : ''));
+  return '<div class="ev' + (e.cup ? ' cup' : '') + '">' +
+         '<div class="d"><b>' + String(e.date.getDate()).padStart(2, '0') + '</b>' +
+         '<i>' + DAYS[e.date.getDay()] + '</i></div>' +
+         '<img src="' + iconFor(e) + '" alt="" loading="lazy">' +
+         '<div class="n"><b>' + esc(e.shop) + '</b><i>' + meta + '</i></div></div>';
+}
+
+function monthLabel(d) { return MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
+
+// Walk a date-ordered list and hand each month's slice to the caller.
+function byMonth(evs, emit) {
+  var i = 0;
+  while (i < evs.length) {
+    var start = i, d = evs[i].date;
+    while (i < evs.length &&
+           evs[i].date.getMonth() === d.getMonth() &&
+           evs[i].date.getFullYear() === d.getFullYear()) { i++; }
+    emit(d, evs.slice(start, i));
+  }
+}
+
+// Upcoming: plain headings, everything visible at once.
+function listHtml(evs) {
+  var html = '';
+  byMonth(evs, function (d, group) {
+    html += '<div class="month">' + monthLabel(d) + '</div>' + group.map(rowHtml).join('');
+  });
+  return html;
+}
+
+// Past: one collapsible group per month, the most recent one already open.
+function pastHtml(evs) {
+  var html = '', first = true;
+  byMonth(evs, function (d, group) {
+    html += '<details class="pm"' + (first ? ' open' : '') + '><summary>' +
+            '<span class="chev">›</span>' + monthLabel(d) +
+            '<span class="num">' + group.length + '</span></summary>' +
+            '<div>' + group.map(rowHtml).join('') + '</div></details>';
+    first = false;
+  });
+  return html;
+}
 
 function render() {
   var shop = document.getElementById('shop').value;
-  var evs = shop
-    ? allEvents.filter(function (e) { return e.shop === shop; })
-    : allEvents;
-
-  var html = '', lastMonth = '';
-  for (var i = 0; i < evs.length; i++) {
-    var e = evs[i];
-    var key = e.date.getFullYear() + '-' + e.date.getMonth();
-    if (key !== lastMonth) {
-      html += '<div class="month">' + MONTHS[e.date.getMonth()] + ' ' + e.date.getFullYear() + '</div>';
-      lastMonth = key;
-    }
-    var meta = esc(e.where + (e.time ? ' · ' + e.time : ''));
-    html += '<div class="ev' + (e.cup ? ' cup' : '') + '">' +
-            '<div class="d"><b>' + String(e.date.getDate()).padStart(2, '0') + '</b>' +
-            '<i>' + DAYS[e.date.getDay()] + '</i></div>' +
-            '<img src="' + iconFor(e) + '" alt="" loading="lazy">' +
-            '<div class="n"><b>' + esc(e.shop) + '</b><i>' + meta + '</i></div></div>';
+  function pick(list) {
+    return shop ? list.filter(function (e) { return e.shop === shop; }) : list;
   }
-  document.getElementById('events').innerHTML = html;
+
+  var evs = pick(allEvents);
+  document.getElementById('events').innerHTML = listHtml(evs);
   document.getElementById('count').textContent =
     evs.length + ' eventos · ' + evs.filter(function (x) { return x.cup; }).length + ' Cups';
+
+  if (pastEvents) {
+    var old = pick(pastEvents);
+    document.getElementById('past').innerHTML = old.length
+      ? pastHtml(old)
+      : '<p class="sub">Nenhum evento passado desta loja.</p>';
+  }
 }
 
 // One option per shop that actually has an upcoming event, A-Z.
@@ -255,6 +326,42 @@ function fillShops() {
   sel.addEventListener('change', render);
 }
 
+// The past feed is a separate file so subscribers do not get finished events
+// pushed into their own calendars.
+var pastUrl = new URL('past.ics', location.href).href;
+var pastBtn = document.getElementById('pastbtn');
+var pastBox = document.getElementById('past');
+var pastLoading = false;
+
+function loadPast() {
+  pastLoading = true;
+  pastBox.innerHTML = '<p class="sub">A carregar…</p>';
+  fetch(pastUrl, { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+    .then(function (text) {
+      var now = new Date(); now.setHours(0, 0, 0, 0);
+      // Most recent first: what just happened is the interesting end.
+      // Sorting (rather than reversing) keeps same-day events in feed order.
+      pastEvents = parseEvents(text)
+        .filter(function (e) { return e.date < now; })
+        .sort(function (a, b) { return b.date - a.date; });
+      if (!pastEvents.length) { throw 0; }
+      render();
+    })
+    .catch(function () {
+      pastEvents = null;
+      pastLoading = false;
+      pastBox.innerHTML = '<p class="sub">Não foi possível carregar os eventos passados.</p>';
+    });
+}
+
+pastBtn.addEventListener('click', function () {
+  var open = pastBtn.getAttribute('aria-expanded') === 'true';
+  pastBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
+  pastBox.hidden = open;
+  if (!open && !pastEvents && !pastLoading) { loadPast(); }
+});
+
 fetch(icsUrl, { cache: 'no-cache' })
   .then(function (r) { if (!r.ok) throw 0; return r.text(); })
   .then(function (text) {
@@ -265,10 +372,12 @@ fetch(icsUrl, { cache: 'no-cache' })
     fillShops();
     render();
     document.getElementById('filter').hidden = false;
+    pastBtn.hidden = false;
   })
   .catch(function () {
     document.getElementById('events').innerHTML =
       '<p class="sub">Não foi possível carregar a lista. O link acima continua a funcionar.</p>';
+    pastBtn.hidden = false;
   });
 </script>
 </body>

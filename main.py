@@ -5,6 +5,7 @@
   python main.py --radius 15           # tighter than the default 30 km
   python main.py --discord <webhook>   # post the image to a Discord channel
   python main.py --ics                 # also write events.ics for Google/Apple Calendar
+  python main.py --past-ics            # also write past.ics (the last 8 weeks)
   python main.py --refresh             # bypass the 6 hour cache
 """
 
@@ -16,11 +17,12 @@ from pathlib import Path
 import requests
 
 import calendar_feed
-from events import get_events
+from events import get_events, get_past_events
 from poster import render
 
 OUT_PATH = Path(__file__).with_name("events.png")
 ICS_PATH = Path(__file__).with_name("events.ics")
+PAST_ICS_PATH = Path(__file__).with_name("past.ics")
 
 
 def post_to_discord(webhook_url: str, image_path: Path, count: int) -> None:
@@ -45,6 +47,10 @@ def main() -> int:
     parser.add_argument("--refresh", action="store_true", help="ignore the local cache")
     parser.add_argument("--ics", nargs="?", const=ICS_PATH, type=Path, metavar="PATH",
                         help="also write an .ics calendar feed")
+    parser.add_argument("--past-ics", nargs="?", const=PAST_ICS_PATH, type=Path, metavar="PATH",
+                        help="also write an .ics of recently finished events")
+    parser.add_argument("--past-weeks", type=int, default=8,
+                        help="how far back --past-ics reaches (default 8)")
     parser.add_argument("--no-poster", action="store_true",
                         help="skip the PNG (for CI, where the Windows fonts are absent)")
     args = parser.parse_args()
@@ -58,6 +64,16 @@ def main() -> int:
     if args.weeks:
         cutoff = date.today() + timedelta(weeks=args.weeks)
         events = [e for e in events if e.date <= cutoff]
+
+    if args.past_ics:
+        try:
+            past = get_past_events(radius_km=args.radius, weeks=args.past_weeks,
+                                   use_cache=not args.refresh)
+        except requests.RequestException as exc:
+            print(f"Could not fetch past events: {exc}", file=sys.stderr)
+            return 1
+        past_path = calendar_feed.write(past, args.past_ics, radius_km=args.radius)
+        print(f"{len(past)} past events -> {past_path}")
 
     if not events:
         print("No events found for those filters.")
