@@ -28,7 +28,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:26a62bcf-1b1d-454d-bc22-0d7e68c05490@pokedata.ovh
-DTSTAMP:20260926T095457Z
+DTSTAMP:20260927T103440Z
 SUMMARY:League Cup · Gglounge
 DTSTART;TZID=Europe/Lisbon:20261004T103000
 DTEND;TZID=Europe/Lisbon:20261004T163000
@@ -39,6 +39,42 @@ DESCRIPTION:League Cup\nCusto: 10€\nViseu · 241 km de Lisboa\nhttps://ww
  w.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-00770
  6/
 CATEGORIES:League Cup
+X-LOCAL:Viseu
+X-FEED:events-viseu.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:3793dcf4-06bb-4845-9875-4792a0bc4269@pokedata.ovh
+DTSTAMP:20260927T103440Z
+SUMMARY:Pre-Release · Gglounge
+DTSTART;TZID=Europe/Lisbon:20261024T203000
+DTEND;TZID=Europe/Lisbon:20261025T003000
+LOCATION:52 R. De São Pedro\, Viseu\, Viseu 3500-025\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-009508/
+DESCRIPTION:Pre-Release\nCusto: 30€\nViseu · 241 km de Lisboa\nhttps://w
+ ww.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-0095
+ 08/
+CATEGORIES:Pre-Release
+X-LOCAL:Viseu
+X-FEED:events-viseu.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:9463f736-26e3-4e16-ba4d-7a5336a0a5a8@pokedata.ovh
+DTSTAMP:20260927T103440Z
+SUMMARY:Pre-Release · Gglounge
+DTSTART;TZID=Europe/Lisbon:20261025T150000
+DTEND;TZID=Europe/Lisbon:20261025T190000
+LOCATION:52 R. De São Pedro\, Viseu\, Viseu 3500-025\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-009513/
+DESCRIPTION:Pre-Release\nCusto: 30€\nViseu · 241 km de Lisboa\nhttps://w
+ ww.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-0095
+ 13/
+CATEGORIES:Pre-Release
 X-LOCAL:Viseu
 X-FEED:events-viseu.ics
 STATUS:CONFIRMED
