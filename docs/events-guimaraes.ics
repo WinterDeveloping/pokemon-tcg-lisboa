@@ -1,0 +1,101 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pokémon TCG · Guimaraes
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Guimaraes
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Lisbon
+X-LIC-LOCATION:Europe/Lisbon
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:WEST
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:WET
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:907e7237-c605-4691-ab4d-7ebc69168437@pokedata.ovh
+DTSTAMP:20260928T081545Z
+SUMMARY:League Challenge · Zukacards
+DTSTART;TZID=Europe/Lisbon:20261010T153000
+DTEND;TZID=Europe/Lisbon:20261010T193000
+LOCATION:Parque Das Hortas 516C\, 4810-025 Guimarães\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-010074/
+DESCRIPTION:League Challenge\nCusto: 6€\nGuimaraes · 311 km de Lisboa\nh
+ ttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26
+ -10-010074/
+CATEGORIES:League Challenge
+X-LOCAL:Guimaraes
+X-FEED:events-guimaraes.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:4399188c-f21e-4f44-84f3-9db4dbf61138@pokedata.ovh
+DTSTAMP:20260928T081545Z
+SUMMARY:Pre-Release · Zukacards
+DTSTART;TZID=Europe/Lisbon:20261024T153000
+DTEND;TZID=Europe/Lisbon:20261024T193000
+LOCATION:Parque Das Hortas 516C\, 4810-025 Guimarães\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-010070/
+DESCRIPTION:Pre-Release\nCusto: 32€\nGuimaraes · 311 km de Lisboa\nhttps
+ ://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-
+ 010070/
+CATEGORIES:Pre-Release
+X-LOCAL:Guimaraes
+X-FEED:events-guimaraes.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:1650a3cb-9800-4b6b-9228-b4702f9e9168@pokedata.ovh
+DTSTAMP:20260928T081545Z
+SUMMARY:Pre-Release · Zukacards
+DTSTART;TZID=Europe/Lisbon:20261025T153000
+DTEND;TZID=Europe/Lisbon:20261025T193000
+LOCATION:Parque Das Hortas 516C\, 4810-025 Guimarães\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-010073/
+DESCRIPTION:Pre-Release\nCusto: 32€\nGuimaraes · 311 km de Lisboa\nhttps
+ ://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-
+ 010073/
+CATEGORIES:Pre-Release
+X-LOCAL:Guimaraes
+X-FEED:events-guimaraes.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:799bd024-7098-4e1e-b643-66135cddf350@pokedata.ovh
+DTSTAMP:20260928T081545Z
+SUMMARY:League Challenge · Zukacards
+DTSTART;TZID=Europe/Lisbon:20261107T153000
+DTEND;TZID=Europe/Lisbon:20261107T193000
+LOCATION:Parque Das Hortas 516C\, 4810-025 Guimarães\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-005719/
+DESCRIPTION:League Challenge\nCusto: 6€\nGuimaraes · 311 km de Lisboa\nh
+ ttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26
+ -11-005719/
+CATEGORIES:League Challenge
+X-LOCAL:Guimaraes
+X-FEED:events-guimaraes.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

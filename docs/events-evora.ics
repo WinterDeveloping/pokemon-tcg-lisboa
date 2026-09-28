@@ -27,26 +27,8 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:d91e1bff-46c4-4dfb-93f1-377fcefea18d@pokedata.ovh
-DTSTAMP:20260927T103440Z
-SUMMARY:League Challenge · Weatherlight Games
-DTSTART;TZID=Europe/Lisbon:20260927T150000
-DTEND;TZID=Europe/Lisbon:20260927T190000
-LOCATION:2 R. Frei José Maria Évora\, Évora\, Évora 7005-206\, Pt
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-09-004441/
-DESCRIPTION:League Challenge\nCusto: 6.5€\nÉvora · 107 km de Lisboa\nht
- tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-
- 09-004441/
-CATEGORIES:League Challenge
-X-LOCAL:Évora
-X-FEED:events-evora.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:9ce31348-c4c3-4f02-ba99-5597bb155d05@pokedata.ovh
-DTSTAMP:20260927T103440Z
+DTSTAMP:20260928T081545Z
 SUMMARY:League Challenge · Weatherlight Games
 DTSTART;TZID=Europe/Lisbon:20261011T150000
 DTEND;TZID=Europe/Lisbon:20261011T190000
@@ -63,8 +45,26 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:b062b112-c33c-4cc3-a919-1178df913457@pokedata.ovh
+DTSTAMP:20260928T081545Z
+SUMMARY:Pre-Release · Weatherlight Games
+DTSTART;TZID=Europe/Lisbon:20261025T150000
+DTEND;TZID=Europe/Lisbon:20261025T190000
+LOCATION:2 R. Frei José Maria Évora\, Évora\, Évora 7005-206\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-009960/
+DESCRIPTION:Pre-Release\nCusto: 32€\nÉvora · 107 km de Lisboa\nhttps://
+ www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-009
+ 960/
+CATEGORIES:Pre-Release
+X-LOCAL:Évora
+X-FEED:events-evora.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:238a40c1-9621-4bf7-90e8-43b83cb36f20@pokedata.ovh
-DTSTAMP:20260927T103440Z
+DTSTAMP:20260928T081545Z
 SUMMARY:League Cup · Weatherlight Games
 DTSTART;TZID=Europe/Lisbon:20261129T100000
 DTEND;TZID=Europe/Lisbon:20261129T160000
@@ -82,7 +82,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:4d46c0b1-1b8f-405c-8362-cad47267da58@pokedata.ovh
-DTSTAMP:20260927T103440Z
+DTSTAMP:20260928T081545Z
 SUMMARY:League Challenge · Weatherlight Games
 DTSTART;TZID=Europe/Lisbon:20261129T170000
 DTEND;TZID=Europe/Lisbon:20261129T210000
