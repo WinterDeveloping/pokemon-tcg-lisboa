@@ -116,6 +116,27 @@
   /* Finished events sit behind the upcoming ones visually, not just spatially. */
   #past { opacity: .62; margin-top: 12px; }
   #past:hover { opacity: 1; }
+  /* Subscribing is a one-time action, so it folds away and lets the event
+     list sit right under the city picker. */
+  .subscribe { margin: 0 0 8px; border: 1px solid var(--edge); border-radius: 12px;
+               background: var(--card); }
+  .subscribe > summary {
+    display: flex; align-items: center; gap: 10px; cursor: pointer;
+    list-style: none; padding: 13px 18px; font-weight: 600;
+  }
+  .subscribe > summary::-webkit-details-marker { display: none; }
+  .subscribe > summary:hover { color: var(--cup); }
+  .subscribe > summary:focus-visible { outline: 2px solid var(--cup); outline-offset: 2px;
+                                       border-radius: 12px; }
+  .subscribe > summary .ico { font-size: 1.2rem; line-height: 1; }
+  .subscribe > summary .chev { margin-left: auto; color: var(--muted);
+                               transition: transform .15s; }
+  .subscribe[open] > summary .chev { transform: rotate(90deg); }
+  .subscribe-body { padding: 4px 18px 6px; border-top: 1px solid var(--edge); }
+  .subscribe-body .btns { margin-top: 14px; }
+  .subscribe-body .btn { background: var(--card-2); }
+  .subscribe-body h2 { margin-top: 26px; }
+  .subscribe-body .sub { margin-bottom: 12px; }
   .pm { border-top: 1px solid var(--edge); }
   .pm > summary {
     display: flex; align-items: center; gap: 8px; cursor: pointer;
@@ -148,7 +169,9 @@
     <select id="cidade"></select>
   </div>
 
-  <h2>Subscrever</h2>
+  <details class="subscribe" id="subscribe">
+  <summary><span class="ico">📅</span> Adicionar ao meu calendário <span class="chev">›</span></summary>
+  <div class="subscribe-body">
   <div class="btns">
     <a class="btn" id="google" href="#"><span>📅</span>
       <div>Google Calendar<small>Abre e confirma "Adicionar"</small></div></a>
@@ -167,6 +190,8 @@
     <li><b>Google Calendar</b> (no computador): "Outros calendários" → <b>+</b> → <b>A partir do URL</b> → colar o link.</li>
   </ol>
   <p class="sub">O Google actualiza a cada 12–24&nbsp;h e pode demorar até um dia a mostrar tudo pela primeira vez. No iPhone podes escolher a frequência nas definições da subscrição.</p>
+  </div>
+  </details>
 
   <h2>Próximos eventos <span id="count" style="float:right;color:var(--muted);
       text-transform:none;letter-spacing:0;font-weight:400"></span></h2>
