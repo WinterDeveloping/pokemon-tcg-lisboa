@@ -69,6 +69,10 @@
   .ev .n { min-width: 0; }
   .ev .n b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .ev .n i { font-style: normal; font-size: .85rem; color: var(--muted); }
+  .ev .t { margin-left: auto; flex: none; font-weight: 700; font-size: 1.05rem;
+           font-variant-numeric: tabular-nums; }
+  .ev.cup .t { color: var(--cup); }
+  .ev.pre .t { color: var(--pre); }
   @media (max-width: 460px) {
     .ev { gap: 10px; padding: 10px 12px; }
     .ev img { width: 36px; height: 36px; }
@@ -96,6 +100,14 @@
   .placepick select:focus-visible { outline: 2px solid var(--cup); outline-offset: 2px; }
   @media (max-width: 560px) {
     .zones { display: none; }
+    .sub .upd { display: none; }
+    /* Half the desktop gaps from the title down to the store filter. */
+    h1 { margin-bottom: 3px; }
+    .wrap > .sub { margin-bottom: 16px; }
+    .placepick { margin-bottom: 15px; }
+    .subscribe { margin-bottom: 4px; }
+    .wrap > h2 { margin: 20px 0 7px; }
+    .filter { gap: 5px; }
     .placepick { display: flex; }
   }
   .zones button:focus-visible { outline: 2px solid var(--cup); outline-offset: 2px; }
@@ -110,6 +122,23 @@
   }
   .filter select:hover { border-color: var(--cup); }
   .filter select:focus-visible { outline: 2px solid var(--cup); outline-offset: 2px; }
+  .types { display: flex; gap: 6px; margin-right: 8px; }
+  .types button {
+    padding: 8px 13px; border-radius: 999px; cursor: pointer;
+    background: var(--card); border: 1px solid var(--edge); color: var(--muted);
+    font: inherit; font-size: .85rem; font-weight: 600;
+    transition: border-color .15s, color .15s, background .15s;
+  }
+  .types button:hover { color: var(--text); border-color: var(--chall); }
+  .types button:focus-visible { outline: 2px solid var(--cup); outline-offset: 2px; }
+  .types button[data-type="cup"].on { background: var(--cup-bg); border-color: var(--cup); color: var(--cup); }
+  .types button[data-type="pre"].on { background: var(--pre-bg); border-color: var(--pre); color: var(--pre); }
+  .types button[data-type="chall"].on { background: var(--card-2); border-color: var(--chall); color: var(--text); }
+  @media (max-width: 560px) {
+    .types { flex: 1 1 100%; margin-right: 0; }
+    .types button { flex: 1 1 0; padding: 9px 6px; }
+    .filter select { flex: 1 1 auto; }
+  }
   .past-toggle {
     display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
     padding: 0; border: 0; background: none; cursor: pointer;
@@ -167,7 +196,7 @@
 <div class="wrap">
 
   <h1>Pokémon TCG · <span id="zonename">Lisboa</span></h1>
-  <p class="sub">League Cups, Challenges e Pre-Releases. Actualizado 4 vezes por dia.</p>
+  <p class="sub">League Cups, Challenges e Pre-Releases.<span class="upd"> Actualizado 4 vezes por dia.</span></p>
   <div class="zones" id="zones"></div>
   <div class="placepick" id="placepick">
     <label for="cidade">Cidade</label>
@@ -201,6 +230,11 @@
   <h2>Próximos eventos <span id="count" style="float:right;color:var(--muted);
       text-transform:none;letter-spacing:0;font-weight:400"></span></h2>
   <div class="filter" id="filter" hidden>
+    <div class="types" id="types" role="group" aria-label="Tipo de evento">
+      <button type="button" data-type="cup" aria-pressed="false">Cup</button>
+      <button type="button" data-type="chall" aria-pressed="false">Challenge</button>
+      <button type="button" data-type="pre" aria-pressed="false">Pre-Release</button>
+    </div>
     <label for="shop">Loja</label>
     <select id="shop"><option value="">Todas as lojas</option></select>
   </div>
@@ -315,14 +349,18 @@ function iconFor(e) {
 // this, never refetch. pastEvents stays null until the past section is opened.
 var allEvents = [];
 var pastEvents = null;
+// '' shows every type; otherwise one of 'cup', 'chall', 'pre'.
+var type = '';
+
+function typeOf(e) { return e.cup ? 'cup' : e.pre ? 'pre' : 'chall'; }
 
 function rowHtml(e) {
-  var meta = esc(e.city + (e.time ? ' · ' + e.time : ''));
   return '<div class="ev' + (e.cup ? ' cup' : e.pre ? ' pre' : '') + '">' +
          '<div class="d"><b>' + String(e.date.getDate()).padStart(2, '0') + '</b>' +
          '<i>' + DAYS[e.date.getDay()] + '</i></div>' +
          '<img src="' + iconFor(e) + '" alt="" loading="lazy">' +
-         '<div class="n"><b>' + esc(e.shop) + '</b><i>' + meta + '</i></div></div>';
+         '<div class="n"><b>' + esc(e.shop) + '</b><i>' + esc(e.city) + '</i></div>' +
+         (e.time ? '<div class="t">' + e.time + '</div>' : '') + '</div>';
 }
 
 function monthLabel(d) { return MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
@@ -365,7 +403,8 @@ function render() {
   var shop = document.getElementById('shop').value;
   function pick(list) {
     return list.filter(function (e) {
-      return e.place === place && (!shop || e.shop === shop);
+      return e.place === place && (!type || typeOf(e) === type) &&
+             (!shop || e.shop === shop);
     });
   }
 
@@ -415,7 +454,9 @@ function setOptions(sel, values, allLabel) {
 // The shop list follows the chosen zone, so it can never offer a shop that
 // would leave the page empty.
 function syncShops() {
-  var pool = allEvents.filter(function (e) { return e.place === place; });
+  var pool = allEvents.filter(function (e) {
+    return e.place === place && (!type || typeOf(e) === type);
+  });
   setOptions(document.getElementById('shop'), distinct(pool, 'shop'), 'Todas as lojas');
 }
 
@@ -481,6 +522,22 @@ function fillPlaces() {
   sel.value = place;
   sel.addEventListener('change', function () { choosePlace(this.value); });
 }
+
+document.getElementById('shop').addEventListener('change', render);
+
+// One type at a time; pressing the active one again shows everything.
+[].forEach.call(document.getElementById('types').children, function (btn) {
+  btn.addEventListener('click', function () {
+    type = type === btn.dataset.type ? '' : btn.dataset.type;
+    [].forEach.call(btn.parentNode.children, function (b) {
+      var on = b.dataset.type === type;
+      b.className = on ? 'on' : '';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    syncShops();
+    render();
+  });
+});
 
 // The past feed is separate so subscribers never get finished events pushed
 // into their own calendars.
