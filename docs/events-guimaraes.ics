@@ -28,7 +28,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:907e7237-c605-4691-ab4d-7ebc69168437@pokedata.ovh
-DTSTAMP:20260929T112402Z
+DTSTAMP:20260929T210714Z
 SUMMARY:League Challenge · Zukacards
 DTSTART;TZID=Europe/Lisbon:20261010T153000
 DTEND;TZID=Europe/Lisbon:20261010T193000
@@ -45,8 +45,46 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:c9d26fbf-f738-4151-b67e-d3b0cffed5fb@pokedata.ovh
+DTSTAMP:20260929T210714Z
+SUMMARY:League Challenge · Mystic Mirage
+DTSTART;TZID=Europe/Lisbon:20261017T150000
+DTEND;TZID=Europe/Lisbon:20261017T190000
+LOCATION:Centro Comercial S. Francisco\, Alameda De São Dâmaso 2º Piso\,
+  Loja 9\, 4810-286 Guimarães\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-013460/
+DESCRIPTION:League Challenge\nCusto: 5.5€\nGuimaraes · 311 km de Lisboa\
+ nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/
+ 26-10-013460/
+CATEGORIES:League Challenge
+X-LOCAL:Guimaraes
+X-FEED:events-guimaraes.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:50190f5a-2299-4e63-977d-4b4bbabe0dcb@pokedata.ovh
+DTSTAMP:20260929T210714Z
+SUMMARY:Pre-Release · Mystic Mirage
+DTSTART;TZID=Europe/Lisbon:20261024T150000
+DTEND;TZID=Europe/Lisbon:20261024T190000
+LOCATION:Centro Comercial S. Francisco\, Alameda De São Dâmaso 2º Piso\,
+  Loja 9\, 4810-286 Guimarães\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-013411/
+DESCRIPTION:Pre-Release\nCusto: 30€\nGuimaraes · 311 km de Lisboa\nhttps
+ ://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-
+ 013411/
+CATEGORIES:Pre-Release
+X-LOCAL:Guimaraes
+X-FEED:events-guimaraes.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:4399188c-f21e-4f44-84f3-9db4dbf61138@pokedata.ovh
-DTSTAMP:20260929T112402Z
+DTSTAMP:20260929T210714Z
 SUMMARY:Pre-Release · Zukacards
 DTSTART;TZID=Europe/Lisbon:20261024T153000
 DTEND;TZID=Europe/Lisbon:20261024T193000
@@ -64,7 +102,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:1650a3cb-9800-4b6b-9228-b4702f9e9168@pokedata.ovh
-DTSTAMP:20260929T112402Z
+DTSTAMP:20260929T210714Z
 SUMMARY:Pre-Release · Zukacards
 DTSTART;TZID=Europe/Lisbon:20261025T153000
 DTEND;TZID=Europe/Lisbon:20261025T193000
@@ -81,8 +119,27 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:71e316f8-a2e7-416b-89f2-86b1436dfeed@pokedata.ovh
+DTSTAMP:20260929T210714Z
+SUMMARY:Pre-Release · Mystic Mirage
+DTSTART;TZID=Europe/Lisbon:20261031T150000
+DTEND;TZID=Europe/Lisbon:20261031T190000
+LOCATION:Centro Comercial S. Francisco\, Alameda De São Dâmaso 2º Piso\,
+  Loja 9\, 4810-286 Guimarães\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-013467/
+DESCRIPTION:Pre-Release\nCusto: 30€\nGuimaraes · 311 km de Lisboa\nhttps
+ ://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-
+ 013467/
+CATEGORIES:Pre-Release
+X-LOCAL:Guimaraes
+X-FEED:events-guimaraes.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:799bd024-7098-4e1e-b643-66135cddf350@pokedata.ovh
-DTSTAMP:20260929T112402Z
+DTSTAMP:20260929T210714Z
 SUMMARY:League Challenge · Zukacards
 DTSTART;TZID=Europe/Lisbon:20261107T153000
 DTEND;TZID=Europe/Lisbon:20261107T193000
@@ -92,6 +149,25 @@ URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
 DESCRIPTION:League Challenge\nCusto: 6€\nGuimaraes · 311 km de Lisboa\nh
  ttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26
  -11-005719/
+CATEGORIES:League Challenge
+X-LOCAL:Guimaraes
+X-FEED:events-guimaraes.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:46293d12-6812-4bf4-8c98-93a75a677395@pokedata.ovh
+DTSTAMP:20260929T210714Z
+SUMMARY:League Challenge · Mystic Mirage
+DTSTART;TZID=Europe/Lisbon:20261114T150000
+DTEND;TZID=Europe/Lisbon:20261114T190000
+LOCATION:Centro Comercial S. Francisco\, Alameda De São Dâmaso 2º Piso\,
+  Loja 9\, 4810-286 Guimarães\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-006130/
+DESCRIPTION:League Challenge\nCusto: 6€\nGuimaraes · 311 km de Lisboa\nh
+ ttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26
+ -11-006130/
 CATEGORIES:League Challenge
 X-LOCAL:Guimaraes
 X-FEED:events-guimaraes.ics

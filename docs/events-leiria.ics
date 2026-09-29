@@ -28,10 +28,10 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:a31e3f02-b80e-4e82-8bc3-0e1a75638d88@pokedata.ovh
-DTSTAMP:20260929T112402Z
+DTSTAMP:20260929T210714Z
 SUMMARY:Pre-Release · Zenith Game Store
-DTSTART;TZID=Europe/Lisbon:20261101T143000
-DTEND;TZID=Europe/Lisbon:20261101T183000
+DTSTART;TZID=Europe/Lisbon:20261025T143000
+DTEND;TZID=Europe/Lisbon:20261025T183000
 LOCATION:Av. Marquês De Pombal 7 420 25\, 2410-152 Leiria\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
  s/26-11-005885/
