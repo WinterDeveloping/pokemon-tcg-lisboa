@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:Pokémon TCG · Portimão
-X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Portimão
+X-WR-CALNAME:Pokémon TCG · Almancil
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Almancil
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
@@ -27,38 +27,36 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:513ca200-339f-42ab-af95-188bb6047fb3@pokedata.ovh
+UID:4f046970-5be1-4952-8c32-9e529cdc0629@pokedata.ovh
 DTSTAMP:20260929T023553Z
-SUMMARY:League Challenge · Mulligan Games Portimão
+SUMMARY:League Challenge · Deckout
 DTSTART;TZID=Europe/Lisbon:20261011T150000
 DTEND;TZID=Europe/Lisbon:20261011T190000
-LOCATION:R. Dos Ctt 33C\, 8500-843 Portimão\, Portugal
+LOCATION:R. João Pires Pinto 39 1º Andar\, 8135\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-10-003971/
-DESCRIPTION:League Challenge\nCusto: Ask Staff\nPortimão · 182 km de Lisb
- oa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournamen
- ts/26-10-003971/
+ s/26-10-011130/
+DESCRIPTION:League Challenge\nAlmancil · 210 km de Lisboa\nhttps://www.pok
+ emon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-011130/
 CATEGORIES:League Challenge
-X-LOCAL:Portimão
-X-FEED:events-portimao.ics
+X-LOCAL:Almancil
+X-FEED:events-almancil.ics
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:83b3326c-c481-4735-a8ff-3667a1a64311@pokedata.ovh
+UID:54093b7c-30b3-4a7a-8309-b9c64bd16b5e@pokedata.ovh
 DTSTAMP:20260929T023553Z
-SUMMARY:League Challenge · Mulligan Games Portimão
+SUMMARY:Pre-Release · Deckout
 DTSTART;TZID=Europe/Lisbon:20261101T150000
 DTEND;TZID=Europe/Lisbon:20261101T190000
-LOCATION:R. Dos Ctt 33C\, 8500-843 Portimão\, Portugal
+LOCATION:R. João Pires Pinto 39 1º Andar\, 8135\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-11-003187/
-DESCRIPTION:League Challenge\nCusto: Ask Staff\nPortimão · 182 km de Lisb
- oa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournamen
- ts/26-11-003187/
-CATEGORIES:League Challenge
-X-LOCAL:Portimão
-X-FEED:events-portimao.ics
+ s/26-11-005876/
+DESCRIPTION:Pre-Release\nAlmancil · 210 km de Lisboa\nhttps://www.pokemon.
+ com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11-005876/
+CATEGORIES:Pre-Release
+X-LOCAL:Almancil
+X-FEED:events-almancil.ics
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT

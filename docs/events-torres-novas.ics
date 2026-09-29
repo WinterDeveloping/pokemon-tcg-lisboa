@@ -28,10 +28,10 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:e59d06c1-efff-41f0-8e4d-94db4155ec84@pokedata.ovh
-DTSTAMP:20260928T183722Z
+DTSTAMP:20260929T023553Z
 SUMMARY:League Cup · Templars Arena Gamecenter
-DTSTART;TZID=Europe/Lisbon:20261003T110000
-DTEND;TZID=Europe/Lisbon:20261003T170000
+DTSTART;TZID=Europe/Lisbon:20261010T110000
+DTEND;TZID=Europe/Lisbon:20261010T170000
 LOCATION:Largo Do Comércio 3B\, 2350-213 Parceiros De Igreja\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
  s/26-10-005653/
@@ -46,10 +46,10 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:64d46d60-84c6-48fb-8584-579f20c9b93d@pokedata.ovh
-DTSTAMP:20260928T183722Z
+DTSTAMP:20260929T023553Z
 SUMMARY:League Challenge · Templars Arena Gamecenter
-DTSTART;TZID=Europe/Lisbon:20261003T170000
-DTEND;TZID=Europe/Lisbon:20261003T210000
+DTSTART;TZID=Europe/Lisbon:20261010T170000
+DTEND;TZID=Europe/Lisbon:20261010T210000
 LOCATION:Largo Do Comércio 3B\, 2350-213 Parceiros De Igreja\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
  s/26-10-005655/
