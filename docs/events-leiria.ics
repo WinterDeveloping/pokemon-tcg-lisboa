@@ -27,18 +27,18 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:7a95f178-6569-4c73-b3f3-13a179145859@pokedata.ovh
-DTSTAMP:20260927T103440Z
-SUMMARY:League Challenge · Zenith Game Store
-DTSTART;TZID=Europe/Lisbon:20260927T153000
-DTEND;TZID=Europe/Lisbon:20260927T193000
+UID:a31e3f02-b80e-4e82-8bc3-0e1a75638d88@pokedata.ovh
+DTSTAMP:20260929T112402Z
+SUMMARY:Pre-Release · Zenith Game Store
+DTSTART;TZID=Europe/Lisbon:20261101T143000
+DTEND;TZID=Europe/Lisbon:20261101T183000
 LOCATION:Av. Marquês De Pombal 7 420 25\, 2410-152 Leiria\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-09-014102/
-DESCRIPTION:League Challenge\nCusto: 7€\nLeiria · 117 km de Lisboa\nhttp
- s://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-09
- -014102/
-CATEGORIES:League Challenge
+ s/26-11-005885/
+DESCRIPTION:Pre-Release\nCusto: 35€\nLeiria · 117 km de Lisboa\nhttps://
+ www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11-005
+ 885/
+CATEGORIES:Pre-Release
 X-LOCAL:Leiria
 X-FEED:events-leiria.ics
 STATUS:CONFIRMED
