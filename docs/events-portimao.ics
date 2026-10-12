@@ -27,26 +27,8 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:513ca200-339f-42ab-af95-188bb6047fb3@pokedata.ovh
-DTSTAMP:20261011T205848Z
-SUMMARY:League Challenge · Mulligan Games Portimão
-DTSTART;TZID=Europe/Lisbon:20261011T150000
-DTEND;TZID=Europe/Lisbon:20261011T190000
-LOCATION:R. Dos Ctt 33C\, 8500-843 Portimão\, Portugal
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-10-003971/
-DESCRIPTION:League Challenge\nCusto: Ask Staff\nPortimão · 182 km de Lisb
- oa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournamen
- ts/26-10-003971/
-CATEGORIES:League Challenge
-X-LOCAL:Portimão
-X-FEED:events-portimao.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:83b3326c-c481-4735-a8ff-3667a1a64311@pokedata.ovh
-DTSTAMP:20261011T205848Z
+DTSTAMP:20261012T022710Z
 SUMMARY:League Challenge · Mulligan Games Portimão
 DTSTART;TZID=Europe/Lisbon:20261101T150000
 DTEND;TZID=Europe/Lisbon:20261101T190000
