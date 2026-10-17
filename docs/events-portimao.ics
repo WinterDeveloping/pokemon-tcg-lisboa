@@ -27,8 +27,26 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
+UID:c34a9980-a845-4757-9e9c-9d399685859b@pokedata.ovh
+DTSTAMP:20261017T092613Z
+SUMMARY:Pre-Release · Mulligan Games Portimão
+DTSTART;TZID=Europe/Lisbon:20261030T203000
+DTEND;TZID=Europe/Lisbon:20261031T003000
+LOCATION:R. Dos Ctt 33C\, 8500-843 Portimão\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-10-031769/
+DESCRIPTION:Pre-Release\nCusto: 30€\nPortimão · 182 km de Lisboa\nhttps
+ ://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-
+ 031769/
+CATEGORIES:Pre-Release
+X-LOCAL:Portimão
+X-FEED:events-portimao.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:83b3326c-c481-4735-a8ff-3667a1a64311@pokedata.ovh
-DTSTAMP:20261017T012025Z
+DTSTAMP:20261017T092613Z
 SUMMARY:League Challenge · Mulligan Games Portimão
 DTSTART;TZID=Europe/Lisbon:20261101T150000
 DTEND;TZID=Europe/Lisbon:20261101T190000
