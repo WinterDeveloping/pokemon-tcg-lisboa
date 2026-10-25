@@ -27,44 +27,8 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:fce3db27-dc51-4711-b22c-fe4cfa7ef05f@pokedata.ovh
-DTSTAMP:20261024T193150Z
-SUMMARY:Pre-Release · Drawstep
-DTSTART;TZID=Europe/Lisbon:20261024T140000
-DTEND;TZID=Europe/Lisbon:20261024T180000
-LOCATION:R. Da Fundação Calouste Gulbenkian N91\, 4710-394 Braga\, Portug
- al
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-10-018222/
-DESCRIPTION:Pre-Release\nCusto: 32€\nBraga · 321 km de Lisboa\nhttps://w
- ww.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-0182
- 22/
-CATEGORIES:Pre-Release
-X-LOCAL:Braga
-X-FEED:events-braga.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:206eafd7-6537-4e34-b8e2-8bd92f97928e@pokedata.ovh
-DTSTAMP:20261024T193150Z
-SUMMARY:Pre-Release · Tbmj
-DTSTART;TZID=Europe/Lisbon:20261024T143000
-DTEND;TZID=Europe/Lisbon:20261024T183000
-LOCATION:R. José Afonso Machado 18\, 4715-595 Braga\, Portugal
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-10-013317/
-DESCRIPTION:Pre-Release\nBraga · 322 km de Lisboa\nhttps://www.pokemon.com
- /us/pokemon-trainer-club/play-pokemon-tournaments/26-10-013317/
-CATEGORIES:Pre-Release
-X-LOCAL:Braga
-X-FEED:events-braga.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:0cc165e5-7e40-4eb1-b672-b92e4fedf869@pokedata.ovh
-DTSTAMP:20261024T193150Z
+DTSTAMP:20261025T011421Z
 SUMMARY:Pre-Release · Drawstep
 DTSTART;TZID=Europe/Lisbon:20261025T140000
 DTEND;TZID=Europe/Lisbon:20261025T180000
@@ -83,7 +47,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:3e559b56-daae-4432-ac23-a275e856c89a@pokedata.ovh
-DTSTAMP:20261024T193150Z
+DTSTAMP:20261025T011421Z
 SUMMARY:Pre-Release · Tbmj
 DTSTART;TZID=Europe/Lisbon:20261030T203000
 DTEND;TZID=Europe/Lisbon:20261031T003000
@@ -100,7 +64,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:b9ec33f0-bd66-4f42-8f21-83357b6250b2@pokedata.ovh
-DTSTAMP:20261024T193150Z
+DTSTAMP:20261025T011421Z
 SUMMARY:League Challenge · Tbmj
 DTSTART;TZID=Europe/Lisbon:20261121T100000
 DTEND;TZID=Europe/Lisbon:20261121T140000
