@@ -27,27 +27,8 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:0cc165e5-7e40-4eb1-b672-b92e4fedf869@pokedata.ovh
-DTSTAMP:20261025T194143Z
-SUMMARY:Pre-Release · Drawstep
-DTSTART;TZID=Europe/Lisbon:20261025T140000
-DTEND;TZID=Europe/Lisbon:20261025T180000
-LOCATION:R. Da Fundação Calouste Gulbenkian N91\, 4710-394 Braga\, Portug
- al
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-10-023404/
-DESCRIPTION:Pre-Release\nCusto: 32€\nBraga · 321 km de Lisboa\nhttps://w
- ww.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-0234
- 04/
-CATEGORIES:Pre-Release
-X-LOCAL:Braga
-X-FEED:events-braga.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:3e559b56-daae-4432-ac23-a275e856c89a@pokedata.ovh
-DTSTAMP:20261025T194143Z
+DTSTAMP:20261026T011502Z
 SUMMARY:Pre-Release · Tbmj
 DTSTART;TZID=Europe/Lisbon:20261030T203000
 DTEND;TZID=Europe/Lisbon:20261031T003000
@@ -64,7 +45,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:b9ec33f0-bd66-4f42-8f21-83357b6250b2@pokedata.ovh
-DTSTAMP:20261025T194143Z
+DTSTAMP:20261026T011502Z
 SUMMARY:League Challenge · Tbmj
 DTSTART;TZID=Europe/Lisbon:20261121T100000
 DTEND;TZID=Europe/Lisbon:20261121T140000

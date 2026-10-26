@@ -27,26 +27,8 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:e71392d3-e73c-44e6-88db-10be04796f50@pokedata.ovh
-DTSTAMP:20261025T194143Z
-SUMMARY:League Challenge · Divercentro
-DTSTART;TZID=Europe/Lisbon:20261025T140000
-DTEND;TZID=Europe/Lisbon:20261025T180000
-LOCATION:C. C. Coimbrashopping\, Av. Mendes Silva 123 Piso 0\, Alto De São
-  João\, 3030-193 Coimbra\, Portugal
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-10-006810/
-DESCRIPTION:League Challenge\nCoimbra · 175 km de Lisboa\nhttps://www.poke
- mon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-006810/
-CATEGORIES:League Challenge
-X-LOCAL:Coimbra
-X-FEED:events-coimbra.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:818082d9-9f76-437e-9a55-54bebd4a9b27@pokedata.ovh
-DTSTAMP:20261025T194143Z
+DTSTAMP:20261026T011502Z
 SUMMARY:Pre-Release · Divercentro
 DTSTART;TZID=Europe/Lisbon:20261101T110000
 DTEND;TZID=Europe/Lisbon:20261101T150000
@@ -65,7 +47,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:9c622656-b551-4db0-b3c4-46a71ba5aa8b@pokedata.ovh
-DTSTAMP:20261025T194143Z
+DTSTAMP:20261026T011502Z
 SUMMARY:Pre-Release · Divercentro
 DTSTART;TZID=Europe/Lisbon:20261101T150000
 DTEND;TZID=Europe/Lisbon:20261101T190000
