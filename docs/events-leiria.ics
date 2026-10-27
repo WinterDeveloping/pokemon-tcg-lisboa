@@ -27,18 +27,36 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:a31e3f02-b80e-4e82-8bc3-0e1a75638d88@pokedata.ovh
-DTSTAMP:20261025T194143Z
-SUMMARY:Pre-Release · Zenith Game Store
-DTSTART;TZID=Europe/Lisbon:20261025T143000
-DTEND;TZID=Europe/Lisbon:20261025T183000
+UID:47fbceea-8ad0-4d36-86bb-3249b5d7f1d5@pokedata.ovh
+DTSTAMP:20261027T103836Z
+SUMMARY:League Challenge · Zenith Game Store
+DTSTART;TZID=Europe/Lisbon:20261115T150000
+DTEND;TZID=Europe/Lisbon:20261115T190000
 LOCATION:Av. Marquês De Pombal 7 420 25\, 2410-152 Leiria\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-11-005885/
-DESCRIPTION:Pre-Release\nCusto: 35€\nLeiria · 117 km de Lisboa\nhttps://
- www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11-005
- 885/
-CATEGORIES:Pre-Release
+ s/26-11-010625/
+DESCRIPTION:League Challenge\nCusto: 6€\nLeiria · 117 km de Lisboa\nhttp
+ s://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11
+ -010625/
+CATEGORIES:League Challenge
+X-LOCAL:Leiria
+X-FEED:events-leiria.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:435d6f79-fb1f-4fe6-ac0b-f0a83c27ef74@pokedata.ovh
+DTSTAMP:20261027T103836Z
+SUMMARY:League Cup · Zenith Game Store
+DTSTART;TZID=Europe/Lisbon:20261122T140000
+DTEND;TZID=Europe/Lisbon:20261122T200000
+LOCATION:Av. Marquês De Pombal 7 420 25\, 2410-152 Leiria\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-010626/
+DESCRIPTION:League Cup\nCusto: 6€\nLeiria · 117 km de Lisboa\nhttps://ww
+ w.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11-01062
+ 6/
+CATEGORIES:League Cup
 X-LOCAL:Leiria
 X-FEED:events-leiria.ics
 STATUS:CONFIRMED
