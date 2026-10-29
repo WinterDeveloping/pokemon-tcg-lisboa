@@ -28,7 +28,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:ed525e83-7923-4f86-a6ae-c04d92c9d098@pokedata.ovh
-DTSTAMP:20261029T022838Z
+DTSTAMP:20261029T113346Z
 SUMMARY:Pre-Release · Gecko Game Store E Café
 DTSTART;TZID=Europe/Lisbon:20261031T150000
 DTEND;TZID=Europe/Lisbon:20261031T190000
@@ -39,6 +39,24 @@ DESCRIPTION:Pre-Release\nCusto: 32€\nVila Real · 310 km de Lisboa\nhttps
  ://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-
  010275/
 CATEGORIES:Pre-Release
+X-LOCAL:Vila Real
+X-FEED:events-vila-real.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:a69db111-9f6a-4a2b-bcc7-5af98a92be4b@pokedata.ovh
+DTSTAMP:20261029T113346Z
+SUMMARY:League Challenge · Gecko Game Store E Café
+DTSTART;TZID=Europe/Lisbon:20261121T150000
+DTEND;TZID=Europe/Lisbon:20261121T190000
+LOCATION:R. Dom António Valente Da Fonseca\, 5000-539 Vila Real\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-011611/
+DESCRIPTION:League Challenge\nCusto: 12€\nVila Real · 310 km de Lisboa\n
+ https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/2
+ 6-11-011611/
+CATEGORIES:League Challenge
 X-LOCAL:Vila Real
 X-FEED:events-vila-real.ics
 STATUS:CONFIRMED
