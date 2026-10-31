@@ -27,25 +27,8 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:3e559b56-daae-4432-ac23-a275e856c89a@pokedata.ovh
-DTSTAMP:20261030T213223Z
-SUMMARY:Pre-Release · Tbmj
-DTSTART;TZID=Europe/Lisbon:20261030T203000
-DTEND;TZID=Europe/Lisbon:20261031T003000
-LOCATION:R. José Afonso Machado 18\, 4715-595 Braga\, Portugal
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-10-013318/
-DESCRIPTION:Pre-Release\nBraga · 322 km de Lisboa\nhttps://www.pokemon.com
- /us/pokemon-trainer-club/play-pokemon-tournaments/26-10-013318/
-CATEGORIES:Pre-Release
-X-LOCAL:Braga
-X-FEED:events-braga.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:b9ec33f0-bd66-4f42-8f21-83357b6250b2@pokedata.ovh
-DTSTAMP:20261030T213223Z
+DTSTAMP:20261031T022704Z
 SUMMARY:League Challenge · Tbmj
 DTSTART;TZID=Europe/Lisbon:20261121T100000
 DTEND;TZID=Europe/Lisbon:20261121T140000

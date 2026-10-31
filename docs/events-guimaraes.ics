@@ -27,27 +27,8 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:71e316f8-a2e7-416b-89f2-86b1436dfeed@pokedata.ovh
-DTSTAMP:20261030T213223Z
-SUMMARY:Pre-Release · Mystic Mirage
-DTSTART;TZID=Europe/Lisbon:20261030T183000
-DTEND;TZID=Europe/Lisbon:20261030T223000
-LOCATION:Centro Comercial S. Francisco\, Alameda De São Dâmaso 2º Piso\,
-  Loja 9\, 4810-286 Guimarães\, Portugal
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-10-013467/
-DESCRIPTION:Pre-Release\nCusto: 30€\nGuimaraes · 311 km de Lisboa\nhttps
- ://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-10-
- 013467/
-CATEGORIES:Pre-Release
-X-LOCAL:Guimaraes
-X-FEED:events-guimaraes.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:799bd024-7098-4e1e-b643-66135cddf350@pokedata.ovh
-DTSTAMP:20261030T213223Z
+DTSTAMP:20261031T022704Z
 SUMMARY:League Challenge · Zukacards
 DTSTART;TZID=Europe/Lisbon:20261107T153000
 DTEND;TZID=Europe/Lisbon:20261107T193000
@@ -65,7 +46,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:46293d12-6812-4bf4-8c98-93a75a677395@pokedata.ovh
-DTSTAMP:20261030T213223Z
+DTSTAMP:20261031T022704Z
 SUMMARY:League Challenge · Mystic Mirage
 DTSTART;TZID=Europe/Lisbon:20261114T150000
 DTEND;TZID=Europe/Lisbon:20261114T190000
