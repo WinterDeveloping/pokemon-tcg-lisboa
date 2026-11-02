@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130">
+  <g stroke="#2a2118" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <!-- the stick tail poking out behind the cloth -->
+    <path d="M96 96 L110 86 L103 78 L118 66" fill="none" stroke="#6b4a2b" stroke-width="5"/>
+    <path d="M96 96 L110 86 L103 78 L118 66" fill="none" stroke-width="1.2"/>
+    <!-- shadow under the hem, with the real eyes peeking out -->
+    <ellipse cx="65" cy="120" rx="34" ry="8" fill="#1d1824"/>
+    <circle cx="58" cy="123" r="1.8" fill="#f2f2f2" stroke="none"/>
+    <circle cx="68" cy="123" r="1.8" fill="#f2f2f2" stroke="none"/>
+    <!-- upright ear -->
+    <path d="M47 46 L30 10 Q40 14 58 40 Z" fill="#efd877"/>
+    <path d="M30 10 L36 23 Q38 17 41 17 Q36 12 30 10 Z" fill="#2a2118"/>
+    <!-- floppy ear, bent over to the side -->
+    <path d="M80 44 Q96 40 108 50 Q112 56 106 58 Q92 54 82 56 Z" fill="#efd877"/>
+    <path d="M108 50 Q112 56 106 58 Q104 53 101 51 Q105 49 108 50 Z" fill="#2a2118"/>
+    <!-- the cloth disguise -->
+    <path d="M33 116 C30 96 34 78 40 68 C38 46 50 34 64 34 C80 34 92 46 90 68
+             C96 78 100 96 97 116 L89 109 L81 117 L73 109 L65 117 L57 109 L49 117 L41 109 Z"
+          fill="#efd877"/>
+    <!-- scribbled-on face -->
+    <path d="M51 62 q-4 5 0 9 q4 3 6 -2 q1 -6 -6 -7" fill="#2a2118"/>
+    <path d="M70 61 q-5 4 -1 9 q5 3 6 -3 q0 -6 -5 -6" fill="#2a2118"/>
+    <circle cx="44" cy="76" r="5.5" fill="#ef8f8f" stroke="none"/>
+    <circle cx="83" cy="76" r="5.5" fill="#ef8f8f" stroke="none"/>
+    <path d="M55 78 L59 82 L63 78 L67 82 L71 78" fill="none" stroke-width="2"/>
+    <!-- santa hat, slipping over to one side -->
+    <path d="M44 40 C44 22 60 10 76 10 C88 10 98 18 102 30 L84 38 Z" fill="#d6283a"/>
+    <path d="M42 36 Q64 26 88 34 L90 43 Q66 35 44 46 Z" fill="#fbfbfb"/>
+    <circle cx="103" cy="31" r="7" fill="#fbfbfb"/>
+  </g>
+</svg>
