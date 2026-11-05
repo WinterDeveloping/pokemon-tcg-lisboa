@@ -27,17 +27,17 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:54093b7c-30b3-4a7a-8309-b9c64bd16b5e@pokedata.ovh
-DTSTAMP:20261101T211301Z
-SUMMARY:Pre-Release · Deckout
-DTSTART;TZID=Europe/Lisbon:20261101T150000
-DTEND;TZID=Europe/Lisbon:20261101T190000
+UID:b586f9eb-db1a-46c5-8f1a-e437eb083133@pokedata.ovh
+DTSTAMP:20261105T033054Z
+SUMMARY:League Challenge · Deckout
+DTSTART;TZID=Europe/Lisbon:20261129T150000
+DTEND;TZID=Europe/Lisbon:20261129T190000
 LOCATION:R. João Pires Pinto 39 1º Andar\, 8135\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-11-005876/
-DESCRIPTION:Pre-Release\nAlmancil · 210 km de Lisboa\nhttps://www.pokemon.
- com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11-005876/
-CATEGORIES:Pre-Release
+ s/26-11-015907/
+DESCRIPTION:League Challenge\nAlmancil · 210 km de Lisboa\nhttps://www.pok
+ emon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11-015907/
+CATEGORIES:League Challenge
 X-LOCAL:Almancil
 X-FEED:events-almancil.ics
 STATUS:CONFIRMED
