@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lisbon-tcg-events//Pokemon TCG Lisboa//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pokémon TCG · Castelo Branco
+X-WR-CALDESC:Cups\, Challenges e Pre-Releases em Castelo Branco
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Lisbon
+X-LIC-LOCATION:Europe/Lisbon
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:WEST
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:WET
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:36c2aca0-ec04-43aa-a9b4-c61a58a7b19b@pokedata.ovh
+DTSTAMP:20261107T205601Z
+SUMMARY:League Challenge · Loja Monster Trainer
+DTSTART;TZID=Europe/Lisbon:20261107T171000
+DTEND;TZID=Europe/Lisbon:20261107T211000
+LOCATION:R. António Roxo E\, 6000-322 Castelo Branco\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-017899/
+DESCRIPTION:League Challenge\nCusto: 5€\nCastelo Branco · 187 km de Lisb
+ oa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournamen
+ ts/26-11-017899/
+CATEGORIES:League Challenge
+X-LOCAL:Castelo Branco
+X-FEED:events-castelo-branco.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
