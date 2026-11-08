@@ -27,26 +27,8 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:799bd024-7098-4e1e-b643-66135cddf350@pokedata.ovh
-DTSTAMP:20261107T205601Z
-SUMMARY:League Challenge · Zukacards
-DTSTART;TZID=Europe/Lisbon:20261107T140000
-DTEND;TZID=Europe/Lisbon:20261107T180000
-LOCATION:Parque Das Hortas 516C\, 4810-025 Guimarães\, Portugal
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-11-005719/
-DESCRIPTION:League Challenge\nCusto: 8€\nGuimaraes · 311 km de Lisboa\nh
- ttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26
- -11-005719/
-CATEGORIES:League Challenge
-X-LOCAL:Guimaraes
-X-FEED:events-guimaraes.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:46293d12-6812-4bf4-8c98-93a75a677395@pokedata.ovh
-DTSTAMP:20261107T205601Z
+DTSTAMP:20261108T023119Z
 SUMMARY:League Challenge · Mystic Mirage
 DTSTART;TZID=Europe/Lisbon:20261114T150000
 DTEND;TZID=Europe/Lisbon:20261114T190000
