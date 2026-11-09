@@ -27,26 +27,8 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:7d9b962d-b51b-4787-ab97-479e35d90ba7@pokedata.ovh
-DTSTAMP:20261108T211303Z
-SUMMARY:League Cup · Galeria Bt
-DTSTART;TZID=Europe/Lisbon:20261108T143000
-DTEND;TZID=Europe/Lisbon:20261108T203000
-LOCATION:R. Gomes Freire Gen. 19 1\, 7520-214 Sines\, Portugal
-URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-09-010101/
-DESCRIPTION:League Cup\nCusto: 10€\nSines · 88 km de Lisboa\nhttps://www
- .pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-09-010101
- /
-CATEGORIES:League Cup
-X-LOCAL:Sines
-X-FEED:events-sines.ics
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:3b36ade2-3c05-4a03-993a-bed4e62730c1@pokedata.ovh
-DTSTAMP:20261108T211303Z
+DTSTAMP:20261109T024150Z
 SUMMARY:League Challenge · Galeria Bt
 DTSTART;TZID=Europe/Lisbon:20261115T143000
 DTEND;TZID=Europe/Lisbon:20261115T183000
