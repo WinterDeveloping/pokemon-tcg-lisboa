@@ -28,7 +28,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:49db3d43-8d20-499d-a57c-17cd0cfc6cad@pokedata.ovh
-DTSTAMP:20261115T124704Z
+DTSTAMP:20261115T215137Z
 SUMMARY:League Challenge · Monster Market
 DTSTART;TZID=Europe/Lisbon:20261115T140000
 DTEND;TZID=Europe/Lisbon:20261115T180000
@@ -45,7 +45,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:5d391957-4c2d-4445-82eb-f23aa6d505f4@pokedata.ovh
-DTSTAMP:20261115T124704Z
+DTSTAMP:20261115T215137Z
 SUMMARY:League Cup · Arena Porto
 DTSTART;TZID=Europe/Lisbon:20261128T150000
 DTEND;TZID=Europe/Lisbon:20261128T210000
@@ -56,6 +56,24 @@ DESCRIPTION:League Cup\nCusto: 18€\nPorto · 274 km de Lisboa\nhttps://ww
  w.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-09-00525
  3/
 CATEGORIES:League Cup
+X-LOCAL:Porto
+X-FEED:events-porto.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:7b3ea048-3d06-4d44-be04-663c7d484cf2@pokedata.ovh
+DTSTAMP:20261115T215137Z
+SUMMARY:League Challenge · Magus
+DTSTART;TZID=Europe/Lisbon:20261128T020000
+DTEND;TZID=Europe/Lisbon:20261128T060000
+LOCATION:352 R. Mário Cesariny\, Vila Nova De Famalicão\, Braga 4760\, Pt
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-023054/
+DESCRIPTION:League Challenge\nCusto: 6.5€\nVila Nova de Famalicão · 303
+  km de Lisboa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemo
+ n-tournaments/26-11-023054/
+CATEGORIES:League Challenge
 X-LOCAL:Porto
 X-FEED:events-porto.ics
 STATUS:CONFIRMED
