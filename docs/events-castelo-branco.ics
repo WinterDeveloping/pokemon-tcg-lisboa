@@ -27,17 +27,17 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:36c2aca0-ec04-43aa-a9b4-c61a58a7b19b@pokedata.ovh
-DTSTAMP:20261107T205601Z
+UID:abacdb2a-3d1d-46fb-9967-8a4eb16ada96@pokedata.ovh
+DTSTAMP:20261117T143014Z
 SUMMARY:League Challenge · Loja Monster Trainer
-DTSTART;TZID=Europe/Lisbon:20261107T171000
-DTEND;TZID=Europe/Lisbon:20261107T211000
+DTSTART;TZID=Europe/Lisbon:20261212T163000
+DTEND;TZID=Europe/Lisbon:20261212T203000
 LOCATION:R. António Roxo E\, 6000-322 Castelo Branco\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-11-017899/
-DESCRIPTION:League Challenge\nCusto: 5€\nCastelo Branco · 187 km de Lisb
- oa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournamen
- ts/26-11-017899/
+ s/26-12-002183/
+DESCRIPTION:League Challenge\nCusto: 10€\nCastelo Branco · 187 km de Lis
+ boa\nhttps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tourname
+ nts/26-12-002183/
 CATEGORIES:League Challenge
 X-LOCAL:Castelo Branco
 X-FEED:events-castelo-branco.ics

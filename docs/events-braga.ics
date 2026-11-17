@@ -28,7 +28,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:b9ec33f0-bd66-4f42-8f21-83357b6250b2@pokedata.ovh
-DTSTAMP:20261117T004946Z
+DTSTAMP:20261117T143014Z
 SUMMARY:League Challenge · Tbmj
 DTSTART;TZID=Europe/Lisbon:20261121T100000
 DTEND;TZID=Europe/Lisbon:20261121T140000
@@ -38,6 +38,25 @@ URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
 DESCRIPTION:League Challenge\nBraga · 322 km de Lisboa\nhttps://www.pokemo
  n.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11-003847/
 CATEGORIES:League Challenge
+X-LOCAL:Braga
+X-FEED:events-braga.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8427f794-ba73-46eb-9082-83158dd82f97@pokedata.ovh
+DTSTAMP:20261117T143014Z
+SUMMARY:League Cup · Drawstep
+DTSTART;TZID=Europe/Lisbon:20261128T110000
+DTEND;TZID=Europe/Lisbon:20261128T170000
+LOCATION:R. Da Fundação Calouste Gulbenkian N91\, 4710-394 Braga\, Portug
+ al
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/26-11-023833/
+DESCRIPTION:League Cup\nCusto: 15€\nBraga · 321 km de Lisboa\nhttps://ww
+ w.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-11-02383
+ 3/
+CATEGORIES:League Cup
 X-LOCAL:Braga
 X-FEED:events-braga.ics
 STATUS:CONFIRMED
