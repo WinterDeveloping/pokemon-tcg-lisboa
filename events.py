@@ -169,7 +169,9 @@ def _request_page(page: int, past: bool = False) -> list[dict]:
     roughly the last two months, so anything older simply is not available.
     """
     payload = {
-        "past": "1" if past else "", "country": "PT", "city": "", "shop": "", "league": "",
+        # Must be a JSON boolean: since Oct 2026 the API ignores the string "1"
+        # and silently returns upcoming events instead.
+        "past": past, "country": "PT", "city": "", "shop": "", "league": "",
         "states": "[]", "postcode": "",
         # TCG premier events only.
         "cups": "1", "challenges": "1", "prereleases": "1", "premier": "1",
