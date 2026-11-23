@@ -27,19 +27,38 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:df6e48c2-903d-4eda-acc5-ee6ce3f249b2@pokedata.ovh
-DTSTAMP:20261122T222920Z
+UID:f70dc966-522b-44b0-8ebf-69b139d49a72@pokedata.ovh
+DTSTAMP:20261123T034443Z
 SUMMARY:League Challenge · Divercentro
-DTSTART;TZID=Europe/Lisbon:20261122T150000
-DTEND;TZID=Europe/Lisbon:20261122T190000
+DTSTART;TZID=Europe/Lisbon:20261227T150000
+DTEND;TZID=Europe/Lisbon:20261227T190000
 LOCATION:C. C. Coimbrashopping\, Av. Mendes Silva 123 Piso 0\, Alto De São
   João\, 3030-193 Coimbra\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-11-023567/
+ s/26-12-005276/
 DESCRIPTION:League Challenge\nCusto: 10€\nCoimbra · 175 km de Lisboa\nht
  tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-
- 11-023567/
+ 12-005276/
 CATEGORIES:League Challenge
+X-LOCAL:Coimbra
+X-FEED:events-coimbra.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:5bc8abc5-268e-419e-951d-9b4b099879e3@pokedata.ovh
+DTSTAMP:20261123T034443Z
+SUMMARY:League Cup · Divercentro
+DTSTART;TZID=Europe/Lisbon:20270117T110000
+DTEND;TZID=Europe/Lisbon:20270117T170000
+LOCATION:C. C. Coimbrashopping\, Av. Mendes Silva 123 Piso 0\, Alto De São
+  João\, 3030-193 Coimbra\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/27-01-002460/
+DESCRIPTION:League Cup\nCusto: A Defenir.\nCoimbra · 175 km de Lisboa\nhtt
+ ps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/27-0
+ 1-002460/
+CATEGORIES:League Cup
 X-LOCAL:Coimbra
 X-FEED:events-coimbra.ics
 STATUS:CONFIRMED
