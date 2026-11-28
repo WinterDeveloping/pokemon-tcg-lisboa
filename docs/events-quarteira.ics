@@ -27,17 +27,71 @@ TZNAME:WET
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:a09cce5c-3301-41ab-981a-775942fcc950@pokedata.ovh
-DTSTAMP:20261114T213213Z
-SUMMARY:League Cup · Mulligan Games
-DTSTART;TZID=Europe/Lisbon:20261114T100000
-DTEND;TZID=Europe/Lisbon:20261114T160000
+UID:77fdf554-443c-478e-8d40-ce1c87c72257@pokedata.ovh
+DTSTAMP:20261128T003310Z
+SUMMARY:League Challenge · Mulligan Games
+DTSTART;TZID=Europe/Lisbon:20261219T150000
+DTEND;TZID=Europe/Lisbon:20261219T190000
 LOCATION:R. Manuel Pontes Da Horta\, 8125-406 Quarteira\, Portugal
 URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
- s/26-11-003188/
+ s/26-12-007329/
+DESCRIPTION:League Challenge\nCusto: 13€\nQuarteira · 205 km de Lisboa\n
+ https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/2
+ 6-12-007329/
+CATEGORIES:League Challenge
+X-LOCAL:Quarteira
+X-FEED:events-quarteira.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bbae1ebe-719a-43db-8943-1731d391842e@pokedata.ovh
+DTSTAMP:20261128T003310Z
+SUMMARY:League Challenge · Mulligan Games
+DTSTART;TZID=Europe/Lisbon:20270116T150000
+DTEND;TZID=Europe/Lisbon:20270116T190000
+LOCATION:R. Manuel Pontes Da Horta\, 8125-406 Quarteira\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/27-01-003359/
+DESCRIPTION:League Challenge\nCusto: 13€\nQuarteira · 205 km de Lisboa\n
+ https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/2
+ 7-01-003359/
+CATEGORIES:League Challenge
+X-LOCAL:Quarteira
+X-FEED:events-quarteira.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:388fa513-b8ee-41a6-920b-a1d87632186d@pokedata.ovh
+DTSTAMP:20261128T003310Z
+SUMMARY:League Challenge · Mulligan Games
+DTSTART;TZID=Europe/Lisbon:20270206T150000
+DTEND;TZID=Europe/Lisbon:20270206T190000
+LOCATION:R. Manuel Pontes Da Horta\, 8125-406 Quarteira\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/27-02-002840/
+DESCRIPTION:League Challenge\nCusto: 13€\nQuarteira · 205 km de Lisboa\n
+ https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/2
+ 7-02-002840/
+CATEGORIES:League Challenge
+X-LOCAL:Quarteira
+X-FEED:events-quarteira.ics
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:d43985af-4d30-4e0a-a599-45882153fcab@pokedata.ovh
+DTSTAMP:20261128T003310Z
+SUMMARY:League Cup · Mulligan Games
+DTSTART;TZID=Europe/Lisbon:20270213T100000
+DTEND;TZID=Europe/Lisbon:20270213T160000
+LOCATION:R. Manuel Pontes Da Horta\, 8125-406 Quarteira\, Portugal
+URL:https://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournament
+ s/27-02-002841/
 DESCRIPTION:League Cup\nCusto: Ask Staff\nQuarteira · 205 km de Lisboa\nht
- tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/26-
- 11-003188/
+ tps://www.pokemon.com/us/pokemon-trainer-club/play-pokemon-tournaments/27-
+ 02-002841/
 CATEGORIES:League Cup
 X-LOCAL:Quarteira
 X-FEED:events-quarteira.ics
